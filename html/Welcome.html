@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Welcome.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <title>Welcome!</title>
+</head>
+
+<body>
+    <nav id="Head" class="container-fluid">
+        <div class="heading">
+            <h1>NETWORKING LAB VIVA</h1>
+        </div>
+    </nav>
+    <div class="container" id="info">
+        <form action="/rule" method="post">
+            <div class="forms">
+                <label for="studentName" class="form-label">
+                    <h3><b>Name: <span id="req">*Required</span></b></h3>
+
+                </label>
+                <input type="text" class="form-control" name="studentName" id="studentName" placeholder="Example: Avengers"
+                    required="true">
+            </div>
+            <hr>
+            <div class="forms">
+                <label for="rollNo" class="form-label">
+                    <h3><b>Roll Number: <span id="req">*Required</span></b></h3>
+
+                </label>
+                <input type="text" class="form-control" id="rollNo" name="rollNo" placeholder="9412345678"
+                    required="true">
+            </div>
+            <hr>
+            <input class="btn btn-outline-dark forms" id="nextbut" type="submit" value="Next">
+        </form>
+    </div>
+    <footer id="foot">
+        <em>Designed by Sayantan Bose. All rights Reserved.</em>
+    </footer>
+    <script src="../static/js/Welcome.js">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

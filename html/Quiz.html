@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Quiz.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <!-- <script src="{{url_for('static', filename='js/Quiz.js')}}"></script> -->
+    <title>Quiz!</title>
+</head>
+
+<body>
+    <nav id="Head" class="container-fluid">
+        <div class="heading">
+            <h1>TECHNOVATION - 2022 TECHQUIZ</h1>
+        </div>
+        <div id="timer" name="timer">
+            <span>Time Left: 30:00</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron bg-light" id="quiz">
+            <div class="container" id="qelements">
+                <div class="quiz-header">
+                    <h2 id="question">Question Text</h2>
+                </div>
+                <ol class="list-group list-group-numbered">
+                    <li>
+                        <input type="radio" name="answer" id="a" class="btn-check answer">
+                        <label for="a" id="a_text" class="btn btn-outline-dark answertext">Answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="b" class="btn-check answer">
+                        <label for="b" id="b_text" class="btn btn-outline-dark answertext">Answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="c" class="btn-check answer">
+                        <label for="c" id="c_text" class="btn btn-outline-dark answertext">Answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="d" class="btn-check answer">
+                        <label for="d" id="d_text" class="btn btn-outline-dark answertext">Answer</label>
+                    </li>
+                </ol>
+                <div class="container">
+                    <button id="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="foot">
+        <em>Designed by Sayantan Bose. All rights Reserved.</em>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="../static/js/Quiz.js"></script>
+    <!-- <script src="../static/js/Question Paper.js"></script> -->
+
+</body>
+
+</html>

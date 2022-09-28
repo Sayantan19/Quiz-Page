@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rules.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+  <script src="{{url_for('static', filename='js/Rules.js')}}"></script>
+  <title>Rules</title>
+</head>
+
+<body>
+  <!-- <img src="../static/img/Technovation - Poster Concepts_page-0001.jpg" alt="" srcset="" id="HeadImage"> -->
+  <nav id="Head">
+    <div class="heading">
+      <h1>TECHNOVATION - 2022 TECHQUIZ</h1>
+    </div>
+  </nav>
+  <main class="container" id="Rules">
+    <header id="Head">
+      <h1>RULES FOR PRELIMS</h1>
+    </header>
+    <ol class="list-group list-group-numbered">
+      <li class="list-group-item" id="rule-list">This is an MCQ round, each team will be given 30 questions to be
+        answered in 30 mins.
+      </li>
+      <li class="list-group-item" id="rule-list">Questions will be asked from all domains related to Tech.</li>
+      <li class="list-group-item" id="rule-list">4 points will be awarded for each correct answer.</li>
+      <li class="list-group-item" id="rule-list">1 point to be deducted for each incorrect answer.</li>
+      <li class="list-group-item" id="rule-list">Ranking will be done based on the total points obtained and the time
+        taken to finish
+        the questions</li>
+      <li class="list-group-item" id="rule-list">In case of tie break, the time taken to submit the quiz will be
+        considered as the
+        deciding factor.</li>
+      <li class="list-group-item" id="rule-list">Use of unfair means will be strictly dealt with.</li>
+      <li class="list-group-item" id="rule-list"> Anyone caught cheating, accessing the internet or use any other means
+        which can
+        damage the spirit of the event will result in immediate disqualification of that team.</li>
+      <li class="list-group-item" id="rule-list">Please be careful while answering. Answers attempted won't be saved and
+        once you proceed to the next question, you will not be allowed to go back.</li>
+    </ol>
+    <div class="input-group mb-3" id="Rule-agree">
+      <input id="accept" class="form-check-input mt-0" type="checkbox" value="" style="margin-right: 10px;"
+        aria-label="Checkbox for following text input" onclick="Function1()">
+      <p id="line"><b>I have read all the rules carefully and agree to abide by them </p>
+      </div>
+      <div class="container">
+        <a class="btn btn-success" id="submit-button" href="/quiz" role="button">Start Quiz!!!</a>
+      </div>
+  </main>
+  <footer id="foot">
+    <em>Designed by Sayantan Bose. All rights Reserved.</em>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
