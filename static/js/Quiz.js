@@ -33,7 +33,7 @@ const timerID = setInterval(() => {
         </div>
         `
     }
-    else if (totalSeconds > 0 && count == 30) {
+    else if (totalSeconds > 0 && count == 4) {
         console.log(timerValue - totalSeconds);
         clearInterval(timerID);
         localStorage.removeItem('saved_timer');
