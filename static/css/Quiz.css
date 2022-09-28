@@ -77,11 +77,15 @@ body {
   border-radius: 4px;
 }
 
-#submit{
+#buttons{
   display: flex;
-  width: 100%;
   justify-content: center;
-  margin-top: 10px;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+#submit{
+  width: 25%;
   background-color: black;
   border: 2px solid rgb(255, 255, 255);
   font-family: 'Rajdhani', sans-serif;

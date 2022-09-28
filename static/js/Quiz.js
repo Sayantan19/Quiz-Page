@@ -1,13 +1,33 @@
-const timerValue = 1800; // this value is in seconds
+//Declared a set of constants required for future operations
+
+//This constant will search for the ID named 'quiz'in the HTML
+const quiz = document.getElementById('quiz')
+//This constant will search for the class named 'answer' in the HTML
+const answerEls = document.querySelectorAll('.answer')
+//This constant will search for the ID named 'question' in the HTML
+const questionEl = document.getElementById('question')
+//These 4 will retrieve the option texts
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+//This will search for the submit button in the page
+const submitBtn = document.getElementById('submit')
+
+//This is the default timer. Time in seconds
+const timerValue = 1800;
+//This variable calculates the total seconds remaining.
 var totalSeconds;
 
 let time = localStorage.getItem('saved_timer');
+//Initializes the time variable using the current system time
 if (time == null) {
     const saved_timer = new Date().getTime() + (timerValue * 1000);
     localStorage.setItem('saved_timer', saved_timer);
     time = saved_timer;
 }
 
+//This keeps updating the time elapsed and displays it on the web page
 const timerID = setInterval(() => {
     const now = new Date().getTime();
     const difference = time - now;
@@ -88,14 +108,6 @@ const quizData = [
     },
 ];
 
-const quiz = document.getElementById('quiz')
-const answerEls = document.querySelectorAll('.answer')
-const questionEl = document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
-const submitBtn = document.getElementById('submit')
 
 
 let visited = new Array(quizData.length).fill(0)
