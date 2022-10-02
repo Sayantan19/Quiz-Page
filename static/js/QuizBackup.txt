@@ -26,8 +26,8 @@ const timerID = setInterval(() => {
         <div class="container" id="end">
         <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length*4}</h2></p>
         <form action="/end" method="post">
-        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
-        <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}">
+        <input id="hideme" name="teamScore" type="text" value="${correctscore.toString()}">
+        <input id="hideme" name="teamTime" type="text" value="${(timerValue-totalSeconds).toString()}">
         <input class="btn btn-outline-dark" type="submit">
         </form>
         </div>
@@ -42,7 +42,6 @@ const timerID = setInterval(() => {
 
 const quizData = [
     {
-        no: "1",
         question: "Identify the correct range of signed char.",
         a: "-256 to 255",
         b: "-128 to 127",
@@ -52,7 +51,6 @@ const quizData = [
     },
     
     {
-        no: "2",
         question: "In a graph of n nodes and n edges, how many cycles will be present?",
         a: "Exactly 1",
         b: "At most 1",
@@ -62,7 +60,6 @@ const quizData = [
     },
     
     {
-        no: "3",
         question: "Using which of the following keywords can an exception be generated?",
         a: "threw",
         b: "throws",
@@ -72,7 +69,6 @@ const quizData = [
     },
     
     {
-        no: "4",
         question: "The headquarters of Amazon company are located in-",
         a: "California",
         b: "Seattle",
@@ -83,7 +79,6 @@ const quizData = [
     },
     
     {
-        no: "5",
         question: "A computer cannot 'boot' if it does not have the: ",
         a: "Compiler",
         b: "Loader",
@@ -93,7 +88,6 @@ const quizData = [
     },
     
     {
-        no: "6",
         question: "Among the following which is not a database management software",
         a: "MySQL",
         b: "COBOL",
@@ -114,36 +108,17 @@ const submitBtn = document.getElementById('submit')
 
 
 let visited = new Array(quizData.length).fill(0)
-let qno = new Array(4).fill(0)
 let currentQuiz = 0
 let correctscore = 0
 var count=0;
-
-
-function QuestionSelector()
-{
-    let count = 0;
-    while(count<4)
-    {
-        let x = Math.floor(Math.random() * quizData.length);
-        if(visited[x] == 0)
-        {
-            qno[count] = x;
-            count++;
-        }
-        else
-            continue;  
-    }
-}
 
 loadQuiz()
 
 function loadQuiz() {
 
-    for(let i=0;i<4;i++)
-    {
-        deselectAnswers()
-        currentQuiz = qno[i];
+    deselectAnswers()
+    currentQuiz = Math.floor(Math.random() * quizData.length);
+    if (visited[currentQuiz] === 0) {
         const currentQuizData = quizData[currentQuiz]
         questionEl.innerText = currentQuizData.question
         a_text.innerText = currentQuizData.a
@@ -151,6 +126,8 @@ function loadQuiz() {
         c_text.innerText = currentQuizData.c
         d_text.innerText = currentQuizData.d
     }
+    else
+        loadQuiz();
 }
 
 function deselectAnswers() {
@@ -194,8 +171,8 @@ submitBtn.addEventListener('click', () => {
             <div class="container" id="end">
                 <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4*4}</h2></p>
                 <form action="/end" method="post">
-                    <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
-                    <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
+                    <input id="hideme" name="teamScore" type="text" value="${correctscore.toString()}" >
+                    <input id="hideme" name="teamTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
                     <input class="btn btn-outline-dark" type="submit">
                 </form>
             </div>
