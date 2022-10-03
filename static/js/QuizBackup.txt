@@ -26,8 +26,8 @@ const timerID = setInterval(() => {
         <div class="container" id="end">
         <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length*4}</h2></p>
         <form action="/end" method="post">
-        <input id="hideme" name="teamScore" type="text" value="${correctscore.toString()}">
-        <input id="hideme" name="teamTime" type="text" value="${(timerValue-totalSeconds).toString()}">
+        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
+        <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}">
         <input class="btn btn-outline-dark" type="submit">
         </form>
         </div>
@@ -171,8 +171,8 @@ submitBtn.addEventListener('click', () => {
             <div class="container" id="end">
                 <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4*4}</h2></p>
                 <form action="/end" method="post">
-                    <input id="hideme" name="teamScore" type="text" value="${correctscore.toString()}" >
-                    <input id="hideme" name="teamTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
+                    <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
+                    <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
                     <input class="btn btn-outline-dark" type="submit">
                 </form>
             </div>

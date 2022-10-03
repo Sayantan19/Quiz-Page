@@ -1,48 +1,6 @@
-const timerValue = 1800; // this value is in seconds
-var totalSeconds;
-
-let time = localStorage.getItem('saved_timer');
-if (time == null) {
-    const saved_timer = new Date().getTime() + (timerValue * 1000);
-    localStorage.setItem('saved_timer', saved_timer);
-    time = saved_timer;
-}
-
-const timerID = setInterval(() => {
-    const now = new Date().getTime();
-    const difference = time - now;
-    
-    
-    totalSeconds = Math.floor(difference / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    document.querySelector("#timer").innerText = 'Time Left: ' + minutes + ':' + ((seconds < 10) ? '0' + seconds : seconds);
-
-    if (totalSeconds <= 0) {
-        alert("TIME'S UP!!!");
-        clearInterval(timerID);
-        localStorage.removeItem('saved_timer');
-        quiz.innerHTML = `
-        <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length*4}</h2></p>
-        <form action="/end" method="post">
-        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
-        <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}">
-        <input class="btn btn-outline-dark" type="submit">
-        </form>
-        </div>
-        `
-    }
-    else if (totalSeconds > 0 && count == 4) {
-        console.log(timerValue - totalSeconds);
-        clearInterval(timerID);
-        localStorage.removeItem('saved_timer');
-    }
-}, 1000);
-
+//CONTAINS ALL THE QUESTIONS
 const quizData = [
     {
-        no: "1",
         question: "Identify the correct range of signed char.",
         a: "-256 to 255",
         b: "-128 to 127",
@@ -50,9 +8,8 @@ const quizData = [
         d: "0 to 127",
         correct: "b",
     },
-    
+
     {
-        no: "2",
         question: "In a graph of n nodes and n edges, how many cycles will be present?",
         a: "Exactly 1",
         b: "At most 1",
@@ -60,9 +17,8 @@ const quizData = [
         d: "Depends on the graph",
         correct: "a",
     },
-    
+
     {
-        no: "3",
         question: "Using which of the following keywords can an exception be generated?",
         a: "threw",
         b: "throws",
@@ -70,20 +26,18 @@ const quizData = [
         d: "catch",
         correct: "c",
     },
-    
+
     {
-        no: "4",
         question: "The headquarters of Amazon company are located in-",
         a: "California",
         b: "Seattle",
         c: "New York",
         d: "Detroit",
         correct: "b",
-        
+
     },
-    
+
     {
-        no: "5",
         question: "A computer cannot 'boot' if it does not have the: ",
         a: "Compiler",
         b: "Loader",
@@ -91,9 +45,8 @@ const quizData = [
         d: "Assembler",
         correct: "c",
     },
-    
+
     {
-        no: "6",
         question: "Among the following which is not a database management software",
         a: "MySQL",
         b: "COBOL",
@@ -102,6 +55,12 @@ const quizData = [
         correct: "b",
     },
 ];
+
+
+const timerValue = 1800; //This is the initial time. Time in seconds
+var totalSeconds;
+
+let time = localStorage.getItem('saved_timer');
 
 const quiz = document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
@@ -117,22 +76,61 @@ let visited = new Array(quizData.length).fill(0)
 let qno = new Array(4).fill(0)
 let currentQuiz = 0
 let correctscore = 0
-var count=0;
+var count = 0;
+const timerID = setInterval(timeUpdate(), 1000);
+
+if (time == null) {
+    const saved_timer = new Date().getTime() + (timerValue * 1000);
+    localStorage.setItem('saved_timer', saved_timer);
+    time = saved_timer;
+}
 
 
-function QuestionSelector()
-{
-    let count = 0;
-    while(count<4)
-    {
-        let x = Math.floor(Math.random() * quizData.length);
-        if(visited[x] == 0)
-        {
-            qno[count] = x;
-            count++;
+function timeUpdate() {
+    const now = new Date().getTime();
+    const difference = time - now;
+
+
+    totalSeconds = Math.floor(difference / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    document.querySelector("#timer").innerText = 'Time Left: ' + minutes + ':' + ((seconds < 10) ? '0' + seconds : seconds);
+
+    if (totalSeconds <= 0) {
+        alert("TIME'S UP!!!");
+        clearInterval(timerID);
+        localStorage.removeItem('saved_timer');
+        quiz.innerHTML = `
+        <div class="container" id="end">
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * 4}</h2></p>
+        <form action="/end" method="post">
+        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
+        <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}">
+        <input class="btn btn-outline-dark" type="submit">
+        </form>
+        </div>
+        `
+    }
+    else if (totalSeconds > 0 && count == 4) {
+        console.log(timerValue - totalSeconds);
+        clearInterval(timerID);
+        localStorage.removeItem('saved_timer');
+    }
+}
+
+QuestionSelector()
+function QuestionSelector() {
+    let c = 0;
+    while (c < 4) {
+        var x = Math.floor(Math.random() * quizData.length);
+        // console.log(x)
+        if (visited[x] == 0) {
+            qno[c] = x;
+            visited[x] = 1;
+            c++;
         }
         else
-            continue;  
+            continue;
     }
 }
 
@@ -140,10 +138,9 @@ loadQuiz()
 
 function loadQuiz() {
 
-    for(let i=0;i<4;i++)
-    {
-        deselectAnswers()
-        currentQuiz = qno[i];
+    deselectAnswers()
+    for (let i = 0; i < 4; i++) {
+        console.log(currentQuiz);
         const currentQuizData = quizData[currentQuiz]
         questionEl.innerText = currentQuizData.question
         a_text.innerText = currentQuizData.a
@@ -176,14 +173,17 @@ function isAllVisited() {
 }
 
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', buttonClicked())
+
+function buttonClicked()
+{
     const answer = getSelected()
     if (answer) {
-        if (answer === quizData[currentQuiz].correct) 
-        correctscore+=4;
+        if (answer === quizData[currentQuiz].correct)
+            correctscore += 4;
         else
-        correctscore--;
-        
+            correctscore--;
+
         visited[currentQuiz] = 1;
         count++;
         if (isAllVisited() == 0 && count != 4) {
@@ -192,10 +192,10 @@ submitBtn.addEventListener('click', () => {
         else {
             quiz.innerHTML = `
             <div class="container" id="end">
-                <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4*4}</h2></p>
+                <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * 4}</h2></p>
                 <form action="/end" method="post">
                     <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
-                    <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
+                    <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}" >
                     <input class="btn btn-outline-dark" type="submit">
                 </form>
             </div>
@@ -203,4 +203,4 @@ submitBtn.addEventListener('click', () => {
         }
     }
 
-})
+}
