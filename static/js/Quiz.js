@@ -10,12 +10,11 @@ if (time == null) {
 
 const timerID = setInterval(timeUpdate, 1000);
 
-function timeUpdate()
-{
+function timeUpdate() {
     const now = new Date().getTime();
     const difference = time - now;
-    
-    
+
+
     totalSeconds = Math.floor(difference / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
@@ -27,10 +26,10 @@ function timeUpdate()
         localStorage.removeItem('saved_timer');
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length*4}</h2></p>
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * 4}</h2></p>
         <form action="/end" method="post">
         <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
-        <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}">
+        <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}">
         <input class="btn btn-outline-dark" type="submit">
         </form>
         </div>
@@ -52,7 +51,7 @@ const quizData = [
         d: "0 to 127",
         correct: "b",
     },
-    
+
     {
         question: "In a graph of n nodes and n edges, how many cycles will be present?",
         a: "Exactly 1",
@@ -61,7 +60,7 @@ const quizData = [
         d: "Depends on the graph",
         correct: "a",
     },
-    
+
     {
         question: "Using which of the following keywords can an exception be generated?",
         a: "threw",
@@ -70,7 +69,7 @@ const quizData = [
         d: "catch",
         correct: "c",
     },
-    
+
     {
         question: "The headquarters of Amazon company are located in-",
         a: "California",
@@ -78,9 +77,9 @@ const quizData = [
         c: "New York",
         d: "Detroit",
         correct: "b",
-        
+
     },
-    
+
     {
         question: "A computer cannot 'boot' if it does not have the: ",
         a: "Compiler",
@@ -89,7 +88,7 @@ const quizData = [
         d: "Assembler",
         correct: "c",
     },
-    
+
     {
         question: "Among the following which is not a database management software",
         a: "MySQL",
@@ -109,11 +108,12 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 const resetBtn = document.getElementById('reset')
+const skipBtn = document.getElementById('skip')
 
 let visited = new Array(quizData.length).fill(0)
 let currentQuiz = 0
 let correctscore = 0
-var count=0;
+var count = 0;
 
 loadQuiz()
 
@@ -156,41 +156,51 @@ function isAllVisited() {
 }
 
 
-submitBtn.addEventListener('click', onSubmit)
 
-function onSubmit()
+function updateQ()
 {
+    visited[currentQuiz] = 1;
+    count++;
+    if (isAllVisited() == 0 && count != 4) {
+        loadQuiz()
+    }
+    else {
+        quiz.innerHTML = `
+        <div class="container" id="end">
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * 4}</h2></p>
+        <form action="/end" method="post">
+        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
+        <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}" >
+        <input class="btn btn-outline-dark" type="submit">
+        </form>
+        </div>
+        `
+    }
+}
+
+
+submitBtn.addEventListener('click', onSubmit)
+function onSubmit() {
     const answer = getSelected()
     if (answer) {
-        if (answer === quizData[currentQuiz].correct) 
-        correctscore+=4;
+        if (answer === quizData[currentQuiz].correct)
+            correctscore += 4;
         else
-        correctscore--;
-        
-        visited[currentQuiz] = 1;
-        count++;
-        if (isAllVisited() == 0 && count != 4) {
-            loadQuiz()
-        }
-        else {
-            quiz.innerHTML = `
-            <div class="container" id="end">
-                <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4*4}</h2></p>
-                <form action="/end" method="post">
-                <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
-                <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
-                <input class="btn btn-outline-dark" type="submit">
-                </form>
-                </div>
-           `
-        }
+            correctscore--;
+        updateQ()
     }
-    
 }
 
 
 resetBtn.addEventListener('click', onReset)
-function onReset()
-{
+function onReset() {
     deselectAnswers()
 }
+
+skipBtn.addEventListener('click', onSkip)
+function onSkip() {
+    correctscore += 0
+    updateQ()
+}
+
+
