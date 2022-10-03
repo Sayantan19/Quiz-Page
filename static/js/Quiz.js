@@ -8,7 +8,10 @@ if (time == null) {
     time = saved_timer;
 }
 
-const timerID = setInterval(() => {
+const timerID = setInterval(timeUpdate, 1000);
+
+function timeUpdate()
+{
     const now = new Date().getTime();
     const difference = time - now;
     
@@ -38,7 +41,7 @@ const timerID = setInterval(() => {
         clearInterval(timerID);
         localStorage.removeItem('saved_timer');
     }
-}, 1000);
+}
 
 const quizData = [
     {
@@ -105,7 +108,7 @@ const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
-
+const resetBtn = document.getElementById('reset')
 
 let visited = new Array(quizData.length).fill(0)
 let currentQuiz = 0
@@ -153,7 +156,10 @@ function isAllVisited() {
 }
 
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', onSubmit)
+
+function onSubmit()
+{
     const answer = getSelected()
     if (answer) {
         if (answer === quizData[currentQuiz].correct) 
@@ -171,13 +177,20 @@ submitBtn.addEventListener('click', () => {
             <div class="container" id="end">
                 <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4*4}</h2></p>
                 <form action="/end" method="post">
-                    <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
-                    <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
-                    <input class="btn btn-outline-dark" type="submit">
+                <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
+                <input id="hideme" name="studentTime" type="text" value="${(timerValue-totalSeconds).toString()}" >
+                <input class="btn btn-outline-dark" type="submit">
                 </form>
-            </div>
+                </div>
            `
         }
     }
+    
+}
 
-})
+
+resetBtn.addEventListener('click', onReset)
+function onReset()
+{
+    deselectAnswers()
+}
