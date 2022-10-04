@@ -34,7 +34,6 @@ class Details(db.Model):
 
 
 @app.route('/')
-@app.route('/login')
 def intro():
     return render_template('Welcome.html')
 
