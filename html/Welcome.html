@@ -23,6 +23,7 @@
     </nav>
     <div class="container" id="info">
         <form action="/rule" method="post">
+            <div class="msg container"><h3>{{ msg }}</h3></div>
             <div class="forms">
                 <label for="studentName" class="form-label">
                     <h3><b>Name: <span id="req">*Required</span></b></h3>
@@ -37,7 +38,7 @@
                     <h3><b>Roll Number: <span id="req">*Required</span></b></h3>
 
                 </label>
-                <input type="text" class="form-control" id="rollNo" name="rollNo" placeholder="2060070"
+                <input type="text" class="form-control" id="rollNo" name="rollNo" placeholder="Example: 2060070"
                     required="true">
             </div>
             <hr>
@@ -45,7 +46,7 @@
         </form>
     </div>
     <footer id="foot">
-        <em>Designed by Sayantan Bose. All rights Reserved.</em>
+        <em>&#169; Sayantan Bose <script>document.write( new Date().getFullYear() );</script>. All rights Reserved.</em>
     </footer>
     <script src="../static/js/Welcome.js">
     </script>

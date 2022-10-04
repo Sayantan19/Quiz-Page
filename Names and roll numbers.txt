@@ -1,0 +1,65 @@
+2060003	Ankit Kumar
+2060006	Tamoghna Sadhukhan
+2060008	Adroha Nath
+2060009	Moni Kumari 
+2060010	Md Farhan Sajid
+2060012	Soham Bhattacharyya
+2060013	Yuvraj Anand
+2060014	Debayan Kumar Ghosh 
+2060015	Anirban Dutta
+2060016	Gulshan Kumar 
+2060017	Sampurna Ghosh 
+2060018	Shreya Chatterjee
+2060019	Amit Kumar Kewot 
+2060020	Adri Karmakar
+2060022	Ruchika Tandon 
+2060023	Rahul Adhikary 
+2060024	Suraj Singh
+2060029	Ankit Kumar 
+2060051	Sukanya Aguan
+2060053	Archisman Mukherjee
+2060060	Anirudh Ray
+2060064	Sayan Bakshi
+2060068	Sushmita Singh
+2060069	Aritrajit Das
+2060073	Abir Roy
+2060074	Singthi Saniya 
+2060077	Ayushmaan Sural 
+2060078	Md Zeeshan 
+2060080	Raunak Kumar Shail
+2060081	Ipshita Bhattacharjee
+2060083	Suman Mazumdar
+2060085	Mamoni Sardar 
+2060086	Ayan Bera 
+2060087	Sayam Banerjee
+2060088	Shakya Chakraborty
+2060089	Aratrik Mukherjee
+2060090	Soumalya Samaddar 
+2060091	Abhilash Dutta
+2060092	Aman Kumar Sharma 
+2060002	Amandeep Nayan Singh 
+2060004	Utkarsh Didwania 
+2060007	Anshuman Dhan 
+2060021	Anustup Chakraborty 
+2060026	Ankush Kumar Tommer
+2060028	Abhikarsha Sil
+2060033	Govind Thakur
+2060035	Mayukh Mondal
+2060041	Rik Saha
+2060042	Riteek Rakesh 
+2060046	Sharanya Pal
+2060048	Sriya Das 
+2060049	Sumit Kumar 
+2060052	Sayantan Podder 
+2060058	Aparajita Kumari 
+2060059	Shreasi Mukherjee
+2060063	Tushar Jain 
+2060065	Jay Joshi
+2060066	Nishit Killa
+2060067	Proteen Kr Das
+2060070	Sayantan Bose
+2060071	Neelavra Dutta
+2060075	Mariam Meerza 
+2060076	Soumyadeep Dandapat
+2060079	Sreeleena Ganguli 
+2060084	Bhagyasri Mishra
