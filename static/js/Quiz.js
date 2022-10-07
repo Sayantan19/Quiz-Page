@@ -35,10 +35,6 @@ function timeUpdate() {
         </div>
         `
     }
-    else if (totalSeconds > 0 && count == 4) {
-        clearInterval(timerID);
-        localStorage.removeItem('saved_timer');
-    }
 }
 
 const quizData = [
@@ -107,10 +103,12 @@ const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 const resetBtn = document.getElementById('reset')
-const skipBtn = document.getElementById('skip')
+const nextBtn = document.getElementById('next')
+const prevBtn = document.getElementById('prev')
 
 let visited = new Array(quizData.length).fill(0)
-let selector = new Array(3).fill(0)
+let selector = new Array(4).fill(0)
+let answerList = new Array(4).fill('n')
 let currentQuiz = 0
 let correctscore = 0
 var count = 0;
@@ -132,7 +130,10 @@ function QuestionSelector() {
 loadQuiz()
 
 function loadQuiz() {
-
+    if(count==0)
+        document.querySelector('#prev').disabled=true;
+    else
+        document.querySelector('#prev').disabled=false;    
     deselectAnswers()
     currentQuiz = selector[count];
 
@@ -150,12 +151,17 @@ function deselectAnswers() {
 
 function getSelected() {
     let answer
+    let flag=0
     answerEls.forEach(answerEl => {
         if (answerEl.checked) {
             answer = answerEl.id
+            flag=1
         }
     })
-    return answer
+    if(flag==1)
+        return answer
+    else
+        return 'n'
 }
 
 function isAllVisited() {
@@ -166,13 +172,27 @@ function isAllVisited() {
     return 1
 }
 
-function updateQ()
-{
-    count++;
+function updateQ() {
     if (count <= 3) {
         loadQuiz()
     }
-    else {
+}
+
+submitBtn.addEventListener('click', onSubmit)
+function onSubmit() {
+    answerList[count] = getSelected()
+    console.log(answerList)
+    if (confirm("Do you want to Submit the quiz?") == true) {
+        for (let i = 0; i < answerList.length; i++) {
+            if (answerList[i] === quizData[selector[i]].correct)
+                correctscore += 4;
+            else if (answerList[i] === 'n')
+                correctscore += 0;
+            else
+                correctscore--;
+        }
+        clearInterval(timerID);
+        localStorage.removeItem('saved_timer');
         quiz.innerHTML = `
         <div class="container" id="end">
         <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * 4}</h2></p>
@@ -186,28 +206,34 @@ function updateQ()
     }
 }
 
-submitBtn.addEventListener('click', onSubmit)
-function onSubmit() {
-    const answer = getSelected()
-    if (answer) {
-        if (answer === quizData[currentQuiz].correct)
-            correctscore += 4;
-        else
-            correctscore--;
-            updateQ()
-        }
-    }
-    
-    
-    resetBtn.addEventListener('click', onReset)
-    function onReset() {
+nextBtn.addEventListener('click', onNext)
+function onNext() {
+    if (count == 2)
+        document.querySelector('#next').disabled = true;
+    else
+        document.querySelector('#next').disabled = false;
+    answerList[count] = getSelected()
+    count++;
+    updateQ()
+    console.log(answerList)
+}
+prevBtn.addEventListener('click', onPrev)
+function onPrev() {
+    if (count == 0)
+        document.querySelector('#prev').disabled = true;
+    else
+        document.querySelector('#prev').disabled = false;
+    answerList[count] = getSelected()
+    count--;
+    updateQ()
+    console.log(answerList)
+}
+
+resetBtn.addEventListener('click', onReset)
+function onReset() {
     deselectAnswers()
 }
 
-skipBtn.addEventListener('click', onSkip)
-function onSkip() {
-    correctscore += 0
-    updateQ()
-}
+
 
 

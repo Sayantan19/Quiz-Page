@@ -91,18 +91,26 @@ body {
   font-family: 'Rajdhani', sans-serif;
 }
 #reset{
-  width: 50%;
+  width: 100%;
   background-color: black;
   border: 2px solid rgb(255, 255, 255);
   font-family: 'Rajdhani', sans-serif;
 }
 
-#skip{
-  width: 50%;
+#next{
+  width: 100%;
   background-color: black;
   border: 2px solid rgb(255, 255, 255);
   font-family: 'Rajdhani', sans-serif;
 }
+
+#prev{
+  width: 100%;
+  background-color: black;
+  border: 2px solid rgb(255, 255, 255);
+  font-family: 'Rajdhani', sans-serif;
+}
+
 #exitMessage{
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
