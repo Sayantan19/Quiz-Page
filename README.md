@@ -5,7 +5,7 @@ I developed this initially to use the same for the Prelims Round of the TechQuiz
 Tools and Languages used:
 I used basic HTML, CSS and JS for creating the same.
 I used Flask for the API
-I used SQLAlchemy, a flask database system, for storing the data.
+I used SQLAlchemy, a flask database system, for storing the data. Also used MySQL for testing purposes.
 I am currently using the inbuilt Flask Server for deployment.
 
-I hope to expand this project into a comprehensive software solution for holding exams in CBT platform in schools and colleges. Ever since COVID came into effect, there has been a rise in the requirement of CBT oriented exam patterns, and I hope that I provide a cheap and easy software alternative to TCS iON.
+I hope to expand this project into a comprehensive software solution for holding exams in CBT platform in schools and colleges. Ever since COVID came into effect, there has been a rise in the requirement of CBT oriented exam patterns, and I hope that I provide a solution to the same.
