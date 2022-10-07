@@ -1,3 +1,30 @@
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidebar").style.width = "400px";
+    document.getElementById("main").style.marginRight = "350px";
+    document.getElementById("timer").style.marginRight = "400px";
+    document.getElementById("timer").style.marginLeft = "0px";
+    document.getElementById("timer").style.width = "10%";
+    document.getElementById("timer").style.fontSize = "20px";
+    document.getElementById("heading").style.width = "40%";
+    document.getElementById("main").style.transition = "0.5s";
+    document.getElementById("timer").style.transition = "0.5s";
+    
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginRight = "0";
+    document.getElementById("timer").style.marginRight = "0";
+    document.getElementById("timer").style.marginLeft = "2%";
+    document.getElementById("timer").style.fontSize = "36px";
+    document.getElementById("timer").style.width = "35%";
+    document.getElementById("heading").style.width = "60%";
+    document.getElementById("timer").style.transition = "0.5s";
+    document.getElementById("main").style.transition = "0.5s";
+  }
+
 const timerValue = 1800; // this value is in seconds
 var totalSeconds;
 
@@ -130,10 +157,14 @@ function QuestionSelector() {
 loadQuiz()
 
 function loadQuiz() {
-    if(count==0)
-        document.querySelector('#prev').disabled=true;
+    if (count == 0)
+        document.querySelector('#prev').disabled = true;
     else
-        document.querySelector('#prev').disabled=false;    
+        document.querySelector('#prev').disabled = false;
+    if (count == 3)
+        document.querySelector('#next').disabled = true;
+    else
+        document.querySelector('#next').disabled = false;
     deselectAnswers()
     currentQuiz = selector[count];
 
@@ -151,14 +182,14 @@ function deselectAnswers() {
 
 function getSelected() {
     let answer
-    let flag=0
+    let flag = 0
     answerEls.forEach(answerEl => {
         if (answerEl.checked) {
             answer = answerEl.id
-            flag=1
+            flag = 1
         }
     })
-    if(flag==1)
+    if (flag == 1)
         return answer
     else
         return 'n'
@@ -208,10 +239,6 @@ function onSubmit() {
 
 nextBtn.addEventListener('click', onNext)
 function onNext() {
-    if (count == 2)
-        document.querySelector('#next').disabled = true;
-    else
-        document.querySelector('#next').disabled = false;
     answerList[count] = getSelected()
     count++;
     updateQ()
@@ -219,10 +246,6 @@ function onNext() {
 }
 prevBtn.addEventListener('click', onPrev)
 function onPrev() {
-    if (count == 0)
-        document.querySelector('#prev').disabled = true;
-    else
-        document.querySelector('#prev').disabled = false;
     answerList[count] = getSelected()
     count--;
     updateQ()
