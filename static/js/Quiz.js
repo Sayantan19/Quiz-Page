@@ -1,3 +1,5 @@
+const openBtn = document.getElementById("open");
+openBtn.addEventListener('click', openNav)
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("mySidebar").style.width = "400px";
@@ -12,6 +14,8 @@ function openNav() {
     
 }
 
+const closeBtn = document.getElementById("close");
+closeBtn.addEventListener('click', closeNav)
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
@@ -63,64 +67,8 @@ function timeUpdate() {
         `
     }
 }
-
-const quizData = [
-    {
-        question: "Identify the correct range of signed char.",
-        a: "-256 to 255",
-        b: "-128 to 127",
-        c: "0 to 255",
-        d: "0 to 127",
-        correct: "b",
-    },
-
-    {
-        question: "In a graph of n nodes and n edges, how many cycles will be present?",
-        a: "Exactly 1",
-        b: "At most 1",
-        c: "At most 2",
-        d: "Depends on the graph",
-        correct: "a",
-    },
-
-    {
-        question: "Using which of the following keywords can an exception be generated?",
-        a: "threw",
-        b: "throws",
-        c: "throw",
-        d: "catch",
-        correct: "c",
-    },
-
-    {
-        question: "The headquarters of Amazon company are located in-",
-        a: "California",
-        b: "Seattle",
-        c: "New York",
-        d: "Detroit",
-        correct: "b",
-
-    },
-
-    {
-        question: "A computer cannot 'boot' if it does not have the: ",
-        a: "Compiler",
-        b: "Loader",
-        c: "Operating system",
-        d: "Assembler",
-        correct: "c",
-    },
-
-    {
-        question: "Among the following which is not a database management software",
-        a: "MySQL",
-        b: "COBOL",
-        c: "Sybase",
-        d: "Oracle",
-        correct: "b",
-    },
-];
-
+import data from './question.json' assert { type: 'json' };
+const quizData = data;
 const quiz = document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
