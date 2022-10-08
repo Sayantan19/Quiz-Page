@@ -1,6 +1,11 @@
+//To set the number of questions
+const NoOfQuestions = 4
+//To set the time
+const timerValue = 120;
+
+// To open the question palette
 const openBtn = document.getElementById("open");
 openBtn.addEventListener('click', openNav)
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("mySidebar").style.width = "400px";
     document.getElementById("main").style.marginRight = "350px";
@@ -11,12 +16,11 @@ function openNav() {
     document.getElementById("heading").style.width = "40%";
     document.getElementById("main").style.transition = "0.5s";
     document.getElementById("timer").style.transition = "0.5s";
-    
 }
 
+//To close the question palette
 const closeBtn = document.getElementById("close");
 closeBtn.addEventListener('click', closeNav)
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginRight = "0";
@@ -27,11 +31,21 @@ function closeNav() {
     document.getElementById("heading").style.width = "60%";
     document.getElementById("timer").style.transition = "0.5s";
     document.getElementById("main").style.transition = "0.5s";
-  }
+}
 
-const timerValue = 1800; // this value is in seconds
+const q1 = document.getElementById("1");
+q1.addEventListener('click', () => {count=0;loadQuiz();} );
+const q2 = document.getElementById("2");
+q2.addEventListener('click', () => {count=1;loadQuiz();});
+const q3 = document.getElementById("3");
+q3.addEventListener('click', () => {count=2;loadQuiz();});
+const q4 = document.getElementById("4");
+q4.addEventListener('click', () => {count=3;loadQuiz();});
+
+
+
 var totalSeconds;
-
+//Initializing the time at the beginning of the quiz
 let time = localStorage.getItem('saved_timer');
 if (time == null) {
     const saved_timer = new Date().getTime() + (timerValue * 1000);
@@ -39,8 +53,9 @@ if (time == null) {
     time = saved_timer;
 }
 
+//To update the time
 const timerID = setInterval(timeUpdate, 1000);
-
+//This is the function which updates the time
 function timeUpdate() {
     const now = new Date().getTime();
     const difference = time - now;
@@ -50,14 +65,16 @@ function timeUpdate() {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
     document.querySelector("#timer").innerText = 'Time Left: ' + minutes + ':' + ((seconds < 10) ? '0' + seconds : seconds);
-
+    //Changes if the time ends
     if (totalSeconds <= 0) {
         alert("TIME'S UP!!!");
         clearInterval(timerID);
         localStorage.removeItem('saved_timer');
+        calculateMarks();
+        closeNav();
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * 4}</h2></p>
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * NoOfQuestions}</h2></p>
         <form action="/end" method="post">
         <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
         <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}">
@@ -82,8 +99,8 @@ const nextBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
 
 let visited = new Array(quizData.length).fill(0)
-let selector = new Array(4).fill(0)
-let answerList = new Array(4).fill('n')
+let selector = new Array(NoOfQuestions).fill(0)
+let answerList = new Array(NoOfQuestions).fill('n')
 let currentQuiz = 0
 let correctscore = 0
 var count = 0;
@@ -91,7 +108,7 @@ var count = 0;
 QuestionSelector()
 function QuestionSelector() {
     let i = 0
-    while (i <= 3) {
+    while (i < NoOfQuestions) {
         let x = Math.floor(Math.random() * quizData.length);
         if (visited[x] == 0) {
             selector[i] = x;
@@ -109,10 +126,6 @@ function loadQuiz() {
         document.querySelector('#prev').disabled = true;
     else
         document.querySelector('#prev').disabled = false;
-    if (count == 3)
-        document.querySelector('#next').disabled = true;
-    else
-        document.querySelector('#next').disabled = false;
     deselectAnswers()
     currentQuiz = selector[count];
 
@@ -143,38 +156,23 @@ function getSelected() {
         return 'n'
 }
 
-function isAllVisited() {
-    for (let index = 0; index < visited.length; index++) {
-        if (visited[index] == 0)
-            return 0
-    }
-    return 1
-}
-
 function updateQ() {
-    if (count <= 3) {
+    if (count < NoOfQuestions) {
         loadQuiz()
     }
 }
 
 submitBtn.addEventListener('click', onSubmit)
 function onSubmit() {
-    answerList[count] = getSelected()
     console.log(answerList)
     if (confirm("Do you want to Submit the quiz?") == true) {
-        for (let i = 0; i < answerList.length; i++) {
-            if (answerList[i] === quizData[selector[i]].correct)
-                correctscore += 4;
-            else if (answerList[i] === 'n')
-                correctscore += 0;
-            else
-                correctscore--;
-        }
+        calculateMarks()
         clearInterval(timerID);
         localStorage.removeItem('saved_timer');
+        closeNav();
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * 4}</h2></p>
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
         <form action="/end" method="post">
         <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
         <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}" >
@@ -188,7 +186,10 @@ function onSubmit() {
 nextBtn.addEventListener('click', onNext)
 function onNext() {
     answerList[count] = getSelected()
-    count++;
+    if (count == NoOfQuestions - 1)
+        count = 0;
+    else
+        count++;
     updateQ()
     console.log(answerList)
 }
@@ -205,6 +206,15 @@ function onReset() {
     deselectAnswers()
 }
 
-
+function calculateMarks() {
+    for (let i = 0; i < answerList.length; i++) {
+        if (answerList[i] === quizData[selector[i]].correct)
+            correctscore += 4;
+        else if (answerList[i] === 'n')
+            correctscore += 0;
+        else
+            correctscore--;
+    }
+}
 
 
