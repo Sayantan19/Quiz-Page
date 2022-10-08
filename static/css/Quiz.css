@@ -4,6 +4,10 @@
   padding: 0px;
 }
 
+#qno{
+  display: inline;
+}
+
 body {
     background-image: url("/static/img/fsdkmfksiEIF.png");
     background-position:center;
@@ -71,8 +75,9 @@ body {
   width: 100%;
 }
 
-.question{
-  background-color: rgba(235, 224, 224, 0.70);
+
+#question{
+  display: inline;
   margin: 10px;
   border-radius: 4px;
 }
@@ -202,4 +207,8 @@ body {
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+.quiz-header{
+  margin-top: 10px;
 }

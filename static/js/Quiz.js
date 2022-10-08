@@ -2,6 +2,7 @@
 const NoOfQuestions = 4
 //To set the time
 const timerValue = 120;
+import data from './question.json' assert { type: 'json' };
 
 // To open the question palette
 const openBtn = document.getElementById("open");
@@ -33,6 +34,7 @@ function closeNav() {
     document.getElementById("main").style.transition = "0.5s";
 }
 
+//This is for the question palette button functionality
 const q1 = document.getElementById("1");
 q1.addEventListener('click', () => {count=0;loadQuiz();} );
 const q2 = document.getElementById("2");
@@ -60,7 +62,6 @@ function timeUpdate() {
     const now = new Date().getTime();
     const difference = time - now;
 
-
     totalSeconds = Math.floor(difference / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
@@ -72,6 +73,7 @@ function timeUpdate() {
         localStorage.removeItem('saved_timer');
         calculateMarks();
         closeNav();
+
         quiz.innerHTML = `
         <div class="container" id="end">
         <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * NoOfQuestions}</h2></p>
@@ -84,7 +86,6 @@ function timeUpdate() {
         `
     }
 }
-import data from './question.json' assert { type: 'json' };
 const quizData = data;
 const quiz = document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
@@ -126,9 +127,13 @@ function loadQuiz() {
         document.querySelector('#prev').disabled = true;
     else
         document.querySelector('#prev').disabled = false;
-    deselectAnswers()
+    if(answerList[count] == 'n')
+        deselectAnswers()
+    else
+        document.getElementById(answerList[count]).checked = true;
     currentQuiz = selector[count];
 
+    document.getElementById("qno").innerHTML = (count+1);
     const currentQuizData = quizData[currentQuiz]
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
