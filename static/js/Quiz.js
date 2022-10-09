@@ -86,19 +86,25 @@ function timeUpdate() {
         `
     }
 }
+
+//The question set is stored in 'quizData'
 const quizData = data;
 const quiz = document.getElementById('quiz')
+//Various elements of the question to be displayed in the page.
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
+
+//Button for various purposes
 const submitBtn = document.getElementById('submit')
 const resetBtn = document.getElementById('reset')
 const nextBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
 
+//Variables for manipulation and navigation of the questions
 let visited = new Array(quizData.length).fill(0)
 let selector = new Array(NoOfQuestions).fill(0)
 let answerList = new Array(NoOfQuestions).fill('n')
@@ -106,6 +112,7 @@ let currentQuiz = 0
 let correctscore = 0
 var count = 0;
 
+//This function selects the questions from a pool of n number of questions stored in the .json file
 QuestionSelector()
 function QuestionSelector() {
     let i = 0
@@ -120,8 +127,8 @@ function QuestionSelector() {
     console.log(selector)
 }
 
+//Used to display the questions on the screen
 loadQuiz()
-
 function loadQuiz() {
     if (count == 0)
         document.querySelector('#prev').disabled = true;
@@ -142,10 +149,12 @@ function loadQuiz() {
     d_text.innerText = currentQuizData.d
 }
 
+//function to deselect all the options.
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
 }
 
+//This is used to select the option that the user clicks
 function getSelected() {
     let answer
     let flag = 0
@@ -161,12 +170,15 @@ function getSelected() {
         return 'n'
 }
 
+
+//For looping through the questions
 function updateQ() {
     if (count < NoOfQuestions) {
         loadQuiz()
     }
 }
 
+//This function adds the functionality to the submit button
 submitBtn.addEventListener('click', onSubmit)
 function onSubmit() {
     console.log(answerList)
@@ -188,6 +200,7 @@ function onSubmit() {
     }
 }
 
+//Adds functionality to the next button
 nextBtn.addEventListener('click', onNext)
 function onNext() {
     answerList[count] = getSelected()
@@ -198,6 +211,8 @@ function onNext() {
     updateQ()
     console.log(answerList)
 }
+
+//Adds functionality to the previous button
 prevBtn.addEventListener('click', onPrev)
 function onPrev() {
     answerList[count] = getSelected()
@@ -206,11 +221,13 @@ function onPrev() {
     console.log(answerList)
 }
 
+//Adds functionality to the reset button
 resetBtn.addEventListener('click', onReset)
 function onReset() {
     deselectAnswers()
 }
 
+//For calculating the marks obtained by the user
 function calculateMarks() {
     for (let i = 0; i < answerList.length; i++) {
         if (answerList[i] === quizData[selector[i]].correct)
