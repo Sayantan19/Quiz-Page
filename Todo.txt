@@ -3,3 +3,5 @@ Next:
 Add the answers selected in an array.
 Once the submit button is pressed, it will then check the answers and calculate the total.
 When next button is pressed for the last question, either display message that it is the last one or dim it. - DONE
+
+Palette changes: green if answered, marked for review, not answered.

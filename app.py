@@ -45,8 +45,9 @@ def rules():
         print(request.form["studentName"], request.form["rollNo"])
         studentName = request.form["studentName"]
         rollNo = request.form["rollNo"]
+        pwd = request.form["pwd"]
         cursor = db1.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM student.student_db WHERE `Student Name` = % s AND `Student Roll` = % s', (studentName, rollNo, ))
+        cursor.execute('SELECT * FROM student.student_db WHERE `Student Name` = % s AND `Student Roll` = % s AND `Password` = % s', (studentName, rollNo, pwd))
         account = cursor.fetchone()
         if account:
             userList[ip_addr] = rollNo
