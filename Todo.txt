@@ -4,4 +4,15 @@ Add the answers selected in an array.
 Once the submit button is pressed, it will then check the answers and calculate the total.
 When next button is pressed for the last question, either display message that it is the last one or dim it. - DONE
 
+!IMPORTANT
+dynamic palette grid creation
 Palette changes: green if answered, marked for review, not answered.
+EXPORT AS PDF OR EXCEL
+
+EASY MEDUIM HARD. 3 SET.
+EASY: 1 markS
+MEDUIM: 2
+HARD: 3
+PRINT MARKS BESIDE EACH question
+WHETHER NEGATIVE OR not
+

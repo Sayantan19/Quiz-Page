@@ -35,7 +35,7 @@ class Details(db.Model):
 
 @app.route('/')
 def intro():
-    return render_template('Welcome.html')
+    return render_template('Student.html')
 
 @app.route('/rule', methods=['GET','POST'])
 def rules():
@@ -58,7 +58,7 @@ def rules():
             return render_template('Rules.html',msg=msg)
         else:
             msg = 'Incorrect credentials!'
-    return render_template('Welcome.html',msg=msg)
+    return render_template('Student.html',msg=msg)
 
 @app.route('/quiz')
 def quiz():
