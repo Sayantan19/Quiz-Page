@@ -19,7 +19,7 @@ def intro():
     return render_template('Student.html')
 
 @app.route('/rule', methods=['GET','POST'])
-def rules():
+def login():
     ip_addr = flask.request.remote_addr
     print('IP Address:',ip_addr)
     if(request.method == 'POST'):
@@ -37,7 +37,7 @@ def rules():
             exam_collection.insert_one(entry)
             print(entry)
             msg = 'Welcome to the Quiz Portal'
-            return render_template('Rules.html',msg=msg)
+            return render_template('login.html',msg=msg)
         else:
             msg = 'Incorrect credentials'
             print("not good")
@@ -52,8 +52,8 @@ def end():
     print(userList[ip_dummy])
     if(request.method == 'POST'):
         studentScore = request.form['studentScore']
-        exam_collection.replace_one({'Student Roll': userList[ip_dummy]}, {'studentScore': studentScore})
         studentTime = request.form['studentTime']
+        exam_collection.replace_one({'Student Roll': userList[ip_dummy]}, {'studentScore': studentScore})
         exam_collection.replace_one({'Student Roll': userList[ip_dummy]}, {'studentTime': studentTime})
         print(studentScore,studentTime)
     return render_template('End.html')
