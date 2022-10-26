@@ -22,7 +22,7 @@ def login():
         studentName = request.form["studentName"]
         rollNo = request.form["rollNo"]
         pwd = request.form["pwd"]
-        if(student_collection.find({'Student Name': studentName}) and student_collection.find({'Student Roll': rollNo}) and student_collection.find({'Password': pwd})) :
+        if(student_collection.find_one({'Student Name': {"$eq": studentName}, 'Student Roll':{"$eq": rollNo}, 'Password':{"$eq": pwd}})) :
             userList[ip_addr] = rollNo
             entry = {}
             entry['studentName'] = studentName

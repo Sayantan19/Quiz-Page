@@ -16,7 +16,7 @@ def teacher_menu():
         teacherName = request.form["teacherName"]
         print(request.form["teacherName"])
         pwd = request.form["pwd"]
-        if(teacher_collection.find({'teacher_name': teacherName}) and teacher_collection.find({'password': pwd})):
+        if(teacher_collection.find({'teacher_name':{"$eq": teacherName}}) and teacher_collection.find({'password': {"$eq": pwd}})):
             return render_template('Menu.html')
         else:
             msg = 'Incorrect credentials'
