@@ -1,25 +1,5 @@
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  font-style: 'Rajdhani', sans-serif;
-}
-
 #qno {
   display: inline;
-}
-
-body {
-  background-image: url("/static/img/fsdkmfksiEIF.png");
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-color: black;
-  width: max-content;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
 }
 
 #timer {
@@ -36,35 +16,6 @@ body {
   margin-left: 2%;
   justify-content: center;
 }
-
-#Head {
-  display: flex;
-  position: static;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  flex-direction: row;
-  background-color: black;
-}
-
-
-#heading {
-  display: flex;
-  color: white;
-  width: 60%;
-  /* border: 2px solid green; */
-  margin-right: 2%;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: left;
-  align-items: center;
-  flex-direction: row;
-  margin: 10px;
-}
-
-
 
 .answer {
   margin: 2px 0px;
@@ -113,7 +64,8 @@ body {
 
 #quiz {
   height: 100%;
-  margin-top: 100px;
+  margin: 10% auto;
+
 }
 
 #qelements {
@@ -130,22 +82,6 @@ body {
 
 #end {
   padding: 10px;
-}
-
-#foot {
-  background-color: black;
-  color: white;
-  margin-top: 10%;
-  padding: 1.6em 0;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
 }
 
 /* The sidebar menu */
@@ -227,4 +163,18 @@ body {
 
 .quiz-header {
   margin-top: 10px;
+}
+
+#heading {
+  display: flex;
+  color: white;
+  width: 60%;
+  /* border: 2px solid green; */
+  margin-right: 2%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px;
 }

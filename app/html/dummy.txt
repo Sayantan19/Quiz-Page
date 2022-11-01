@@ -1,0 +1,35 @@
+<div class="forms">
+                <label for="question" class="form-label">
+                    <h3><b>Question: <span id="req">*Required</span></b></h3>
+                </label>
+                <input type="text" class="form-control" id="question" name="question" placeholder="" required="true">
+                <div class="forms">
+                    <label for="question" class="form-label">
+                        <h3><b>Option 1: <span id="req">*Required</span></b></h3>
+                    </label>
+                    <input type="text" class="form-control" id="question" name="question" placeholder=""
+                        required="true">
+                </div>
+                <div class="forms">
+                    <label for="question" class="form-label">
+                        <h3><b>Option 2: <span id="req">*Required</span></b></h3>
+                    </label>
+                    <input type="text" class="form-control" id="question" name="question" placeholder=""
+                        required="true">
+                </div>
+                <div class="forms">
+                    <label for="question" class="form-label">
+                        <h3><b>Option 3: <span id="req">*Required</span></b></h3>
+                    </label>
+                    <input type="text" class="form-control" id="question" name="question" placeholder=""
+                        required="true">
+                </div>
+                <div class="forms">
+                    <label for="question" class="form-label">
+                        <h3><b>Option 4: <span id="req">*Required</span></b></h3>
+                    </label>
+                    <input type="text" class="form-control" id="question" name="question" placeholder=""
+                        required="true">
+                </div>
+                <hr>
+            </div>

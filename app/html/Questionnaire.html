@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Teacher.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Questionnaire.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,33 +21,34 @@
             <h1>QUIZ PLATFORM</h1>
         </div>
     </nav>
-    <div class="container" id="info">
-        <form action="/teacher/menu" method="post">
-            <div class="msg container"><h3>{{ msg }}</h3></div>
+    <div class="container form-group" id="info">
+        <!-- <form action="/teacher/questionnaire"> -->
             <div class="forms">
-                <label for="teacherName" class="form-label">
-                    <h3><b>Name: <span id="req">*Required</span></b></h3>
-
+                <label for="no_of_questions_in_pool" class="form-label">
+                    <h3><b>Specify the number of questions do you want to keep in the pool <span
+                                id="req">*Required</span></b></h3>
                 </label>
-                <input type="text" class="form-control" name="teacherName" id="teacherName" placeholder="Example: Sayantan Bose"
-                    required="true">
+                <input type="text" class="form-control" name="no_of_questions_in_pool" id="no_of_questions_in_pool"
+                    placeholder="" required="true">
             </div>
             <hr>
             <div class="forms">
-                <label for="pwd" class="form-label">
-                    <h3><b>Password: <span id="req">*Required</span></b></h3>
-
+                <label for="no_of_questions_in_quiz" class="form-label">
+                    <h3><b>Specify the number of questions in the quiz <span id="req">*Required</span></b></h3>
                 </label>
-                <input type="password" class="form-control" id="pwd" name="pwd" placeholder=""
-                    required="true">
+                <input type="text" class="form-control" id="no_of_questions_in_quiz" name="no_of_questions_in_quiz"
+                    placeholder="" required="true">
             </div>
             <hr>
-            <input class="btn btn-outline-dark forms" id="nextbut" type="submit" value="Login">
-        </form>
+            <button class="btn btn-outline-dark forms" id="nextbut">Next</button>
+        <!-- </form> -->
     </div>
     <footer id="foot">
-        <em>&#169; Sayantan Bose <script>document.write( new Date().getFullYear() );</script>. All rights Reserved.</em>
+        <em>&#169; Sayantan Bose
+            <script>document.write(new Date().getFullYear());</script>. All rights Reserved.
+        </em>
     </footer>
+    <script src="../static/js/Questionnaire.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>

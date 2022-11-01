@@ -1,9 +1,9 @@
-
 #profile-box{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 39em;
+    height: 25em;
+    margin: 10% auto;
     /* border: 2px solid red; */
     max-width: fit-content;
     color: rgb(0,0,0);

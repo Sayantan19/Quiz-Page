@@ -1,26 +1,10 @@
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-}
-
-#HeadImage{
-    display: flex;
-    width: 100%;
-    height: 10%;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-#Rules{
+#Rules {
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
     border: 5px white;
     border-style: solid;
     border-radius: 4px;
     padding: 10px;
-    margin-top: 2%;
     width: 100%;
     display: flex;
     background-color: rgba(235, 224, 224, 0.64);
@@ -28,14 +12,15 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    margin: 6.5% auto;
 }
 
-header{
-    font-family: 'Mulish', sans-serif;
-    font-weight: bold;
+.header {
+    display: flex;
+    color: black;
 }
 
-#Rule-agree{
+#Rule-agree {
     margin-top: 20px;
     /* margin-right: 15px; */
     display: inline-flex;
@@ -43,78 +28,33 @@ header{
     align-content: center;
     flex-direction: row;
     width: 100%;
-    
+
 }
 
-#line{
+#line {
     justify-content: center;
     display: contents;
 }
 
-#accept{
+#accept {
     border-radius: 2px;
     /* background-color: black !important; */
 }
 
-#submit-button{
+#submit-button {
     margin: 10px;
-    display:none;
+    display: none;
     background-color: black;
     border: 2px solid rgb(255, 255, 255);
     font-family: 'Rajdhani', sans-serif;
 }
 
-.btn btn-success:hover{
-    background-color:white;
+.btn btn-success:hover {
+    background-color: white;
     border: 2px solid black;
     transition: 0.7s
 }
 
-body{
-    background-image: url("/static/img/fsdkmfksiEIF.png");
-    background-position:center;
-    background-attachment:fixed;
-    background-repeat: no-repeat;
-    background-color: black;
-    width: max-content;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    /* image-resolution:calc(1000 x 100); */
-}
-#rule-list{
+#rule-list {
     background-color: rgb(235 224 224 / 68%);
-}
-
-.heading {
-    display: flex;
-    color: white;
-    background-color: rgba(0, 0, 0);
-    width: 100%;
-    /* border: 2px solid green; */
-    margin-right: 2%;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: left;
-    align-items:center;
-    flex-direction: row;
-    padding: 10px;
-  }
-  
-  footer{
-    background-color: black;
-    color: white;
-    margin-top: 10%;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    padding: 1.6em 0;
-    /* width: 100%; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
 }

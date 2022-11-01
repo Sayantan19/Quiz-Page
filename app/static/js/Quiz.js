@@ -2,7 +2,7 @@
 const NoOfQuestions = 4
 //To set the time
 const timerValue = 120;
-import data from './question.json' assert { type: 'json' };
+import data from '../Questions/question.json' assert { type: 'json' };
 
 // To open the question palette
 const openBtn = document.getElementById("open");

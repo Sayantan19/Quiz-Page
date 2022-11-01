@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,request,redirect
 import flask
 import app.extensions
 
@@ -10,7 +10,8 @@ userList = {}
 
 @student.route('/login')
 def student_intro():
-    return render_template('Student.html')
+    msg="Enter your credentials"
+    return render_template('Student.html', msg=msg)
 
 @student.route('/rule', methods=['GET','POST'])
 def login():
@@ -32,10 +33,10 @@ def login():
             exam_collection.insert_one(entry)
             print(entry)
             msg="Hello"
-            return render_template('Rules.html')
+            return render_template('Rules.html', studentName=studentName)
         else:
             msg = 'Incorrect credentials'
-    return render_template('Student.html',msg=msg)
+    return redirect("/student/login")
 
 @student.route('/quiz')
 def quiz():
