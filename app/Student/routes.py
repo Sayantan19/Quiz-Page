@@ -1,6 +1,10 @@
-from flask import Blueprint,render_template,request,redirect
+from json import JSONEncoder
+from flask import Blueprint,render_template,request,redirect,jsonify,make_response,json,url_for,send_from_directory
+import requests
 import flask
 import app.extensions
+
+folder = 'E:\Quiz Page'
 
 student = Blueprint('student', __name__,url_prefix='/student')
 student_collection = app.extensions.student_collection
@@ -38,9 +42,22 @@ def login():
             msg = 'Incorrect credentials'
     return redirect("/student/login")
 
-@student.route('/quiz')
-def quiz():
+@student.route('/quiz', methods=['POST','GET'])
+def question():
+    # if(request.method == 'GET' and 'Content-Type' == 'application/json'):
+    #     req = request.get_json()
+    #     print(req)
+    #     res = make_response(jsonify({"message": "JSON received"}))
+    # with open('question.json', 'r') as f:
+    #     x = json.load(f)
+    #     y = json.dumps(x)
+    #     print(y)
+    #     # print(x['quizData'])
     return render_template('Quiz.html')
+
+@student.route('/quiz/question')
+def questionset():
+    return send_from_directory(folder,path='question.json',as_attachment=True)
 
 @student.route('/end', methods=['GET','POST'])
 def end():

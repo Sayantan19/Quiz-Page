@@ -2,7 +2,9 @@
 const NoOfQuestions = 4
 //To set the time
 const timerValue = 120;
-import data from '../Questions/question.json' assert { type: 'json' };
+
+
+import data from '/student/quiz/question' assert { type: 'json' };
 
 // To open the question palette
 const openBtn = document.getElementById("open");
@@ -36,13 +38,13 @@ function closeNav() {
 
 //This is for the question palette button functionality
 const q1 = document.getElementById("1");
-q1.addEventListener('click', () => {count=0;loadQuiz();} );
+q1.addEventListener('click', () => { count = 0; loadQuiz(); });
 const q2 = document.getElementById("2");
-q2.addEventListener('click', () => {count=1;loadQuiz();});
+q2.addEventListener('click', () => { count = 1; loadQuiz(); });
 const q3 = document.getElementById("3");
-q3.addEventListener('click', () => {count=2;loadQuiz();});
+q3.addEventListener('click', () => { count = 2; loadQuiz(); });
 const q4 = document.getElementById("4");
-q4.addEventListener('click', () => {count=3;loadQuiz();});
+q4.addEventListener('click', () => { count = 3; loadQuiz(); });
 
 
 
@@ -87,8 +89,9 @@ function timeUpdate() {
     }
 }
 
-//The question set is stored in 'quizData'
-const quizData = data;
+// //The question set is stored in 'quizData'
+const quizData = data['quizData'];
+console.log(quizData)
 const quiz = document.getElementById('quiz')
 //Various elements of the question to be displayed in the page.
 const answerEls = document.querySelectorAll('.answer')
@@ -134,13 +137,13 @@ function loadQuiz() {
         document.querySelector('#prev').disabled = true;
     else
         document.querySelector('#prev').disabled = false;
-    if(answerList[count] == 'n')
+    if (answerList[count] == 'n')
         deselectAnswers()
     else
         document.getElementById(answerList[count]).checked = true;
     currentQuiz = selector[count];
 
-    document.getElementById("qno").innerHTML = (count+1);
+    document.getElementById("qno").innerHTML = (count + 1);
     const currentQuizData = quizData[currentQuiz]
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
