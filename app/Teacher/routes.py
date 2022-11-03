@@ -33,8 +33,16 @@ def question():
     req = request.get_json()
     print(req)
     res = make_response(jsonify({"message": "JSON received"}))
-    with open('q.json', 'w') as f:
-        json.dump(req, f)
+    with open('question.json', 'r+') as f:
+        # json.write(req, f)
+        # First we load existing data into a dict.
+        file_data = json.load(f)
+        # Join new_data with file_data inside questions
+        file_data["Question_settings"] = req
+        # Sets file's current position at offset.
+        f.seek(0)
+        # convert back to json.
+        json.dump(file_data, f, indent = 4)
     return res
 
 @teacher.route('/question_settings/question', methods=['POST'])
@@ -46,7 +54,7 @@ def question1():
         # json.write(req, f)
         # First we load existing data into a dict.
         file_data = json.load(f)
-        # Join new_data with file_data inside emp_details
+        # Join new_data with file_data inside questions
         file_data["quizData"].append(req)
         # Sets file's current position at offset.
         f.seek(0)

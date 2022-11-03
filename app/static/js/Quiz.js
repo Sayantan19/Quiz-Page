@@ -1,10 +1,11 @@
-//To set the number of questions
-const NoOfQuestions = 4
-//To set the time
-const timerValue = 120;
-
-
 import data from '/student/quiz/question' assert { type: 'json' };
+
+//To set the number of questions
+const NoOfQuestions = Number(data['Question_settings']['quizquestions'])
+//To set the time
+const timerValue = NoOfQuestions*Number(data['Question_settings']['questiontime']);
+
+
 
 // To open the question palette
 const openBtn = document.getElementById("open");
@@ -78,7 +79,7 @@ function timeUpdate() {
 
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${quizData.length * NoOfQuestions}</h2></p>
+        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
         <form action="/student/end" method="post">
         <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
         <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}">

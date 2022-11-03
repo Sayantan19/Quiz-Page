@@ -32,8 +32,8 @@ def login():
             entry = {}
             entry['studentName'] = studentName
             entry['rollNo'] = rollNo
-            entry['studentScore'] = '0'
-            entry['completionTime'] = '0'
+            entry['studentScore'] = 0
+            entry['completionTime'] = 0
             exam_collection.insert_one(entry)
             print(entry)
             msg="Hello"
@@ -66,8 +66,8 @@ def end():
     if(request.method == 'POST'):
         studentScore = request.form['studentScore']
         studentTime = request.form['studentTime']
-        exam_collection.replace_one({'Student Roll': userList[ip_dummy]}, {'studentScore': studentScore})
-        exam_collection.replace_one({'Student Roll': userList[ip_dummy]}, {'studentTime': studentTime})
+        exam_collection.update_one({'rollNo': userList[ip_dummy]}, { '$set': {'studentScore': studentScore}})
+        exam_collection.update_one({'rollNo': userList[ip_dummy]}, { '$set': {'completionTime': studentTime}})
         print(studentScore,studentTime)
     return render_template('End.html')
 

@@ -1,47 +1,88 @@
 {
-    "quizData": [{
-        "question": "Identify the correct range of signed char.",
-        "a": "-256 to 255",
-        "b": "-128 to 127",
-        "c": "0 to 255",
-        "d": "0 to 127",
-        "correct": "b"
+    "Question_settings": {
+        "questiontime": "30",
+        "quizquestions": "2"
     },
-
-    {
-        "question": "In a graph of n nodes and n edges, how many cycles will be present?",
-        "a": "Exactly 1",
-        "b": "At most 1",
-        "c": "At most 2",
-        "d": "Depends on the graph",
-        "correct": "a"
-    },
-    
-    {
-        "question": "Using which of the following keywords can an exception be generated?",
-        "a": "threw",
-        "b": "throws",
-        "c": "throw",
-        "d": "catch",
-        "correct": "c"
-    },
-    
-    {
-        "question": "The headquarters of Amazon company are located in-",
-        "a": "California",
-        "b": "Seattle",
-        "c": "New York",
-        "d": "Detroit",
-        "correct": "b"
-        
-    },
-    
-    {
-        "question": "A computer cannot 'boot' if it does not have the: ",
-        "a": "Compiler",
-        "b": "Loader",
-        "c": "Operating system",
-        "d": "Assembler",
-        "correct": "c"
-    }]
+    "quizData": [
+        {
+            "a": "-256 to 255",
+            "b": "-128 to 127",
+            "c": "0 to 255",
+            "correct": "b",
+            "d": "0 to 127",
+            "question": "Identify the correct range of signed char."
+        },
+        {
+            "a": "Exactly 1",
+            "b": "At most 1",
+            "c": "At most 2",
+            "correct": "a",
+            "d": "Depends on the graph",
+            "question": "In a graph of n nodes and n edges, how many cycles will be present?"
+        },
+        {
+            "a": "threw",
+            "b": "throws",
+            "c": "throw",
+            "correct": "c",
+            "d": "catch",
+            "question": "Using which of the following keywords can an exception be generated?"
+        },
+        {
+            "a": "California",
+            "b": "Seattle",
+            "c": "New York",
+            "correct": "b",
+            "d": "Detroit",
+            "question": "The headquarters of Amazon company are located in-"
+        },
+        {
+            "a": "Compiler",
+            "b": "Loader",
+            "c": "Operating system",
+            "correct": "c",
+            "d": "Assembler",
+            "question": "A computer cannot 'boot' if it does not have the: "
+        },
+        {
+            "a": "Sadhan",
+            "answer": "c",
+            "b": "Kumar",
+            "c": "Bose",
+            "d": "SKB",
+            "question": "Who is your father"
+        },
+        {
+            "a": "Sayantan",
+            "answer": "c",
+            "b": "Bose",
+            "c": "Sayantan Bose",
+            "d": "Bose Sayantan",
+            "question": "What is your name?"
+        },
+        {
+            "a": "Sadhan",
+            "answer": "d",
+            "b": "Kumar",
+            "c": "Bose",
+            "d": "SKB",
+            "question": "What is your name?"
+        },
+        {
+            "a": "Sayantan",
+            "answer": "c",
+            "b": "Bose",
+            "c": "Sayantan Bose",
+            "d": "Bose Sayantan",
+            "question": "What is your name?"
+        },
+        {
+            "a": "Sadhan",
+            "answer": "d",
+            "b": "Bose",
+            "c": "c",
+            "d": "d",
+            "question": "How is your name?"
+        }
+    ]
 }

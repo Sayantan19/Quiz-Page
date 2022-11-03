@@ -1,14 +1,14 @@
 const button = document.getElementById('nextbut')
 const info_set = document.getElementById('info')
-const poolquestion = document.getElementById('no_of_questions_in_pool')
+const questiontime = document.getElementById('time_for_each_question')
 const quizquestion = document.getElementById('no_of_questions_in_quiz')
 button.addEventListener('click', openQues)
 let i = 0;
 
 function openQues() {
     const data = {
-        quizquestions: quizquestion.value,
-        poolquestions: poolquestion.value
+        questiontime: questiontime.value,
+        quizquestions: quizquestion.value
     }
     console.log(data);
     fetch(`${window.origin}/teacher/question_settings/questions`, {
@@ -30,12 +30,10 @@ function openQues() {
         })
     })
     console.log(i)
-    callQuestionPage(i)
+    callQuestionPage()
 }
 
-function callQuestionPage(i) {
-    if (i == poolquestion.value)
-        callEndPage();
+function callQuestionPage() {
     info_set.innerHTML = `
     <div class="forms">
     <label for="question" class="form-label">
@@ -74,7 +72,8 @@ function callQuestionPage(i) {
                 <input type="text" class="form-control" id="answer" name="answer" placeholder=""required="true">
                 </div>
                 <hr>
-                <button class="btn btn-outline-dark forms" id="next">Next</button>
+                <button class="btn btn-outline-dark forms" id="next">Add Question</button>
+                <button class="btn btn-outline-dark forms" id="end">Exit</button>
                 `
     var question = document.getElementById('question');
     var option1 = document.getElementById('option1');
@@ -83,9 +82,9 @@ function callQuestionPage(i) {
     var option4 = document.getElementById('option4');
     var answer = document.getElementById('answer');
     const button1 = document.getElementById('next')
+    const button2 = document.getElementById('end')
     button1.addEventListener('click', openQues1)
-    console.log(i)
-    callQuestionPage(i+1);
+    button2.addEventListener('click', callEndPage)
 }
 
 function openQues1() {
@@ -125,10 +124,37 @@ function openQues1() {
 }
 
 function callEndPage() {
+    const data1 = {
+        'question': question.value,
+        'a': option1.value,
+        'b': option2.value,
+        'c': option3.value,
+        'd': option4.value,
+        'answer': answer.value
+    }
+    console.log(data1);
+    fetch(`${window.origin}/teacher/question_settings/question`, {
+        method: 'POST',
+        credentials: "include",
+        body: JSON.stringify(data1),
+        cache: 'no-cache',
+        headers: new Headers({
+            'content-type': 'application/json'
+        })
+    }).then(function (response) {
+        if (response.status != 200) {
+            console.log('Error', response.status);
+            return;
+        }
+
+        response.json().then(function (data) {
+            console.log(data);
+        })
+    })
     info.innerHTML = `
     <div class="container" id="end">
         <p id="exitMessage"><h2>Thanks for taking part in this quiz. We will be notifying you the results soon!</h2></p>
-        <button class="btn btn-outline-dark" id="endButton" onclick="window.location.assign('/teacher/login')">Logout</button>
+        <button class="btn btn-outline-dark" id="endButton" onclick="window.location.assign('/teacher/login')">Go to menu</button>
     </div>
     `
 }
