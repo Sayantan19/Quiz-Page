@@ -5,7 +5,7 @@ from app.Profile.routes import quiz_profile
 import os
 
 def create_app():
-    tempdir = os.path.abspath("e:/Quiz Page/app/html")
+    tempdir = os.path.abspath("e:/Quiz Page Dummy/app/html")
     app = Flask(__name__, template_folder=tempdir)
     app.register_blueprint(quiz_profile)
     app.register_blueprint(teacher)
