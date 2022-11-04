@@ -7,18 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rules.css')}}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
   <script src="{{url_for('static', filename='js/Rules.js')}}"></script>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
+  <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
   <title>Rules</title>
 </head>
 
 <body>
-  <!-- <img src="../static/img/Technovation - Poster Concepts_page-0001.jpg" alt="" srcset="" id="HeadImage"> -->
   <nav id="Head">
     <div class="heading">
       <h1>Welcome {{studentName}}</h1>
@@ -52,17 +49,16 @@
       <input id="accept" class="form-check-input mt-0" type="checkbox" value="" style="margin-right: 10px;"
         aria-label="Checkbox for following text input" onclick="Function1()">
       <p id="line"><b>I have read all the rules carefully and agree to abide by them </p>
-      </div>
-      <div class="container">
-        <a class="btn btn-success" id="submit-button" href="/student/quiz" role="button">Start Quiz!!!</a>
-      </div>
     </div>
+    <div class="container">
+      <a class="btn btn-success" id="submit-button" href="/student/quiz" role="button">Start Quiz!!!</a>
+    </div>
+  </div>
   <footer id="foot">
-    <em> &#169; Sayantan Bose <script>document.write( new Date().getFullYear() );</script>. All rights Reserved.</em>
+    <em> &#169; Sayantan Bose
+      <script>document.write(new Date().getFullYear());</script>. All rights Reserved.
+    </em>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>

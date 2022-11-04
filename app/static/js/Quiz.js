@@ -38,16 +38,25 @@ function closeNav() {
 }
 
 //This is for the question palette button functionality
-const q1 = document.getElementById("1");
-q1.addEventListener('click', () => { count = 0; loadQuiz(); });
-const q2 = document.getElementById("2");
-q2.addEventListener('click', () => { count = 1; loadQuiz(); });
-const q3 = document.getElementById("3");
-q3.addEventListener('click', () => { count = 2; loadQuiz(); });
-const q4 = document.getElementById("4");
-q4.addEventListener('click', () => { count = 3; loadQuiz(); });
+// const q1 = document.getElementById("1");
+// q1.addEventListener('click', () => { count = 0; loadQuiz(); });
+// const q2 = document.getElementById("2");
+// q2.addEventListener('click', () => { count = 1; loadQuiz(); });
+// const q3 = document.getElementById("3");
+// q3.addEventListener('click', () => { count = 2; loadQuiz(); });
+// const q4 = document.getElementById("4");
+generatePalette()
+function generatePalette()
+{
+    var but = document.getElementById("buttons")
+    for(let i=0;i<NoOfQuestions;i++)
+    {
+        but.insertAdjacentHTML("beforeend",`<button type="button" class="button btn btn-success ${i}" id="palette_button" id-type='2' onClick="(function(){count = ${i-1}; loadQuiz();})()">${i+1}</button>`)
+    }
+}
 
-
+var x = document.getElementById('palette_button');
+x.addEventListener('click', () => { console.log(x.textContent); count = Number(x.textContent)-1; loadQuiz(); });
 
 var totalSeconds;
 //Initializing the time at the beginning of the quiz

@@ -43,9 +43,9 @@
 
 .button {
   width: 100%;
-  background-color: black;
-  border: 2px solid rgb(255, 255, 255);
-  font-family: 'Rajdhani', sans-serif;
+  background-color: black !important;
+  border: 2px solid rgb(255, 255, 255) !important;
+  font-family: 'Rajdhani', sans-serif !important;
 }
 
 .button:hover,

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +9,13 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Quiz.css')}}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
-    <!-- <script src="{{url_for('static', filename='js/Quiz.js')}}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="module" src="../static/js/Quiz.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Icons.css')}}">
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js')}}"></script>
     <title>Quiz!</title>
 </head>
 
@@ -37,58 +37,11 @@
                 </div>
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="1">1</button>
-                        <button type="button" class="button btn btn-success" id="2">2</button>
-                        <button type="button" class="button btn btn-success" id="3">3</button>
-                        <button type="button" class="button btn btn-success" id="4">4</button>
-                        <!-- <button type="button" class="button btn btn-success" id="5">5</button> -->
+                        <!-- <button type="button" class="button btn btn-success" id="button"></button>
+                        <button type="button" class="button btn btn-success" id="button"></button>
+                        <button type="button" class="button btn btn-success" id="button"></button> -->
                     </div>
                 </div>
-                <!-- <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="6">6</button>
-                        <button type="button" class="button btn btn-success" id="7">7</button>
-                        <button type="button" class="button btn btn-success" id="8">8</button>
-                        <button type="button" class="button btn btn-success" id="9">9</button>
-                        <button type="button" class="button btn btn-success" id="10">10</button>
-                    </div>
-                </div>
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="11">11</button>
-                        <button type="button" class="button btn btn-success" id="12">12</button>
-                        <button type="button" class="button btn btn-success" id="13">13</button>
-                        <button type="button" class="button btn btn-success" id="14">14</button>
-                        <button type="button" class="button btn btn-success" id="15">15</button>
-                    </div>
-                </div>
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="16">16</button>
-                        <button type="button" class="button btn btn-success" id="17">17</button>
-                        <button type="button" class="button btn btn-success" id="18">18</button>
-                        <button type="button" class="button btn btn-success" id="19">19</button>
-                        <button type="button" class="button btn btn-success" id="20">20</button>
-                    </div>
-                </div>
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="21">21</button>
-                        <button type="button" class="button btn btn-success" id="22">22</button>
-                        <button type="button" class="button btn btn-success" id="23">23</button>
-                        <button type="button" class="button btn btn-success" id="24">24</button>
-                        <button type="button" class="button btn btn-success" id="25">25</button>
-                    </div>
-                </div>
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div id="buttons" class="container btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="button btn btn-success" id="26">26</button>
-                        <button type="button" class="button btn btn-success" id="27">27</button>
-                        <button type="button" class="button btn btn-success" id="28">28</button>
-                        <button type="button" class="button btn btn-success" id="29">29</button>
-                        <button type="button" class="button btn btn-success" id="30">30</button>
-                    </div>
-                </div> -->
             </div>
             <div class="container-fluid" id="qelements">
                 <div id="main">
@@ -132,10 +85,6 @@
             <script>document.write(new Date().getFullYear());</script>. All rights Reserved.
         </em>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
-    <script type="module" src="../static/js/Quiz.js"></script>
     <!-- <script src="../static/js/Question Paper.js"></script> -->
 </body>
 
