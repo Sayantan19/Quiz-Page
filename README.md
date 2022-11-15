@@ -6,7 +6,7 @@ It was initially developed for the Prelims Round of the TechQuiz, the Quiz Event
 <br>1. <b>Designing:</b> Basic HTML, CSS (with Bootstrap 5)
 <br>2. <b>Frontend:</b> JS
 <br>3. <b>API:</b> FetchAPI, JQuery
-<br>4. Microframework:</b> Flask
+<br>4. <b>Microframework:</b> Flask
 <br>4. <b>Databases:</b> MongoDB.
 <br>5. <b>Server:</b>: Flask Default Server.
 
