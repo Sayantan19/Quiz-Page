@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Scores.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
+    <title>Scores Page</title>
+</head>
+
+<body>
+    <nav id="Head" class="container-fluid">
+        <div class="heading">
+            <h1>SCORE SHEET</h1>
+        </div>
+    </nav>
+    <div class="container" id="score-table">
+        <div id="score">
+            <table class="table table-light table-bordered" id="score">
+                <thead id="table-heading">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Student Name</th>
+                        <th scope="col">Student Score</th>
+                        <th scope="col">Time Taken for Completion</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for score in scores %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{score['studentName']}}</td>
+                        <td>{{score['studentScore']}}</td>
+                        <td>{{score['completionTime']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="container">
+            <a href="/teacher/menu">
+                <div class="button" id="back">Go Back</div>
+            </a>
+        </div> -->
+    </div>
+    <footer id="foot">
+        <em>&#169; Sayantan Bose
+            <script>document.write(new Date().getFullYear());</script>. All rights Reserved.
+        </em>
+    </footer>
+    <script src="{{url_for('static', filename='js/Scores.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js')}}"></script>
+</body>
+
+</html>

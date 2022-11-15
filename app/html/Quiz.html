@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Quiz.css')}}">
-    <script type="module" src="../static/js/Quiz.js"></script>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Icon.css')}}">
-    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js')}}"></script>
     <title>Quiz!</title>
 </head>
 
@@ -46,7 +43,7 @@
             <div class="container-fluid" id="qelements">
                 <div id="main">
                     <button id="open" class="openbtn">&#9776; Open Question Palette</button>
-                    
+
                     <div>
                         <h2 class="quiz-header"><span id="qno">QNo.</span>:<span id="question">Question Text</span></h2>
                     </div>
@@ -86,6 +83,9 @@
         </em>
     </footer>
     <!-- <script src="../static/js/Question Paper.js"></script> -->
+    <script type="module" src="../static/js/Quiz.js"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js')}}"></script>
 </body>
 
 </html>

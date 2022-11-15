@@ -1,6 +1,6 @@
 {
     "Question_settings": {
-        "questiontime": "30",
+        "questiontime": "13",
         "quizquestions": "2"
     },
     "quizData": [
@@ -83,6 +83,22 @@
             "c": "c",
             "d": "d",
             "question": "How is your name?"
+        },
+        {
+            "a": "Sadhan",
+            "answer": "c",
+            "b": "Gopa",
+            "c": "Sayantan",
+            "d": "Bose",
+            "question": "What is your name?"
+        },
+        {
+            "a": "Sayantan",
+            "answer": "c",
+            "b": "Kumar",
+            "c": "Bose",
+            "d": "SKB",
+            "question": "What is your name?"
         }
     ]
 }

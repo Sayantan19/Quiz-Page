@@ -3,6 +3,7 @@ import app.extensions
 
 teacher = Blueprint('teacher', __name__,url_prefix='/teacher')
 teacher_collection = app.extensions.teacher_collection
+score_collection = app.extensions.exam_collection
 user = ""
 
 @teacher.route('/login')
@@ -62,5 +63,9 @@ def question1():
         json.dump(file_data, f, indent = 4)
     return res
 
+@teacher.route('/score_list', methods=['GET','POST'])
+def scores():
+    scores = score_collection.find()
+    return render_template("Scores.html",scores=scores)
 
 

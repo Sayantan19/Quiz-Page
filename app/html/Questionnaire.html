@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/General.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Questionnaire.css')}}">
-    <script src="{{url_for('static', filename='js/Questionnaire.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
-    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
     <title>Welcome!</title>
 </head>
 
@@ -22,24 +20,23 @@
     </nav>
     <div class="container form-group" id="info">
         <!-- <form action="/teacher/questionnaire"> -->
-            <div class="forms">
-                <label for="time_for_each_question" class="form-label">
-                    <h3><b>Specify the time to be given for each question <span
-                                id="req">*Required</span></b></h3>
-                </label>
-                <input type="text" class="form-control" name="time_for_each_question" id="time_for_each_question"
-                    placeholder="" required="true">
-            </div>
-            <hr>
-            <div class="forms">
-                <label for="no_of_questions_in_quiz" class="form-label">
-                    <h3><b>Specify the number of questions in the quiz <span id="req">*Required</span></b></h3>
-                </label>
-                <input type="text" class="form-control" id="no_of_questions_in_quiz" name="no_of_questions_in_quiz"
-                    placeholder="" required="true">
-            </div>
-            <hr>
-            <button class="btn btn-outline-dark forms" id="nextbut">Next</button>
+        <div class="forms">
+            <label for="time_for_each_question" class="form-label">
+                <h3><b>Specify the time to be given for each question <span id="req">*Required</span></b></h3>
+            </label>
+            <input type="text" class="form-control" name="time_for_each_question" id="time_for_each_question"
+                placeholder="" required="true">
+        </div>
+        <hr>
+        <div class="forms">
+            <label for="no_of_questions_in_quiz" class="form-label">
+                <h3><b>Specify the number of questions in the quiz <span id="req">*Required</span></b></h3>
+            </label>
+            <input type="text" class="form-control" id="no_of_questions_in_quiz" name="no_of_questions_in_quiz"
+                placeholder="" required="true">
+        </div>
+        <hr>
+        <button class="btn btn-outline-dark forms" id="nextbut">Next</button>
         <!-- </form> -->
     </div>
     <footer id="foot">
@@ -47,6 +44,9 @@
             <script>document.write(new Date().getFullYear());</script>. All rights Reserved.
         </em>
     </footer>
+    <script src="{{url_for('static', filename='js/Questionnaire.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.min.js')}}"></script>
 </body>
 
 </html>

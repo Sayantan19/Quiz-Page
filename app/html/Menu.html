@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Rajdhani.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/Mulish.css')}}">
-    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
     <title>Welcome!</title>
 </head>
 
@@ -26,21 +25,21 @@
                 <a href="/teacher/question_settings">
                     <div class="card">
                         <img src="{{url_for('static', filename='img/question.png')}}" class="card-img-top image"
-                            alt="...">
+                        alt="...">
                     </div>
-
+                    
                     <div class="card-body">
                         <h5 class="card-text">SET QUESTIONS</h5>
                     </div>
                 </a>
             </div>
             <div class="col profile" id="statistics">
-                <a href="#">
+                <a href="/teacher/score_list">
                     <div class="card">
                         <img src="{{url_for('static', filename='img/statistics.png')}}" class="card-img-top image"
-                            alt="...">
+                        alt="...">
                     </div>
-
+                    
                     <div class="card-body">
                         <h5 class="card-text">CHECK SCORES</h5>
                     </div>
@@ -51,6 +50,7 @@
     <footer id="foot">
         <em>&#169; Sayantan Bose <script>document.write( new Date().getFullYear() );</script>. All rights Reserved.</em>
     </footer>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
 </body>
 
 </html>

@@ -1,0 +1,31 @@
+#score-table
+{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 15em;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 25em;
+}
+
+#score{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+/* #table-heading{
+    position: fixed;
+} */
+/* #back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100px;
+} */

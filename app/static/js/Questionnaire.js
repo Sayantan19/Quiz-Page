@@ -96,31 +96,36 @@ function openQues1() {
         'd': option4.value,
         'answer': answer.value
     }
-    console.log(data1);
-    fetch(`${window.origin}/teacher/question_settings/question`, {
-        method: 'POST',
-        credentials: "include",
-        body: JSON.stringify(data1),
-        cache: 'no-cache',
-        headers: new Headers({
-            'content-type': 'application/json'
-        })
-    }).then(function (response) {
-        if (response.status != 200) {
-            console.log('Error', response.status);
-            return;
-        }
+    if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == "" || data1['answer'] == "")
+        alert('One or more fields are empty. Please fill form carefully.')
+    else
+    {
+        console.log(data1);
+        fetch(`${window.origin}/teacher/question_settings/question`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify(data1),
+            cache: 'no-cache',
+            headers: new Headers({
+                'content-type': 'application/json'
+            })
+        }).then(function (response) {
+            if (response.status != 200) {
+                console.log('Error', response.status);
+                return;
+            }
 
-        response.json().then(function (data) {
-            console.log(data);
+            response.json().then(function (data) {
+                console.log(data);
+            })
         })
-    })
-    question.value = "";
-    option1.value = "";
-    option2.value = "";
-    option3.value = "";
-    option4.value = "";
-    answer.value = "";
+        question.value = "";
+        option1.value = "";
+        option2.value = "";
+        option3.value = "";
+        option4.value = "";
+        answer.value = "";
+    }
 }
 
 function callEndPage() {
@@ -132,29 +137,43 @@ function callEndPage() {
         'd': option4.value,
         'answer': answer.value
     }
-    console.log(data1);
-    fetch(`${window.origin}/teacher/question_settings/question`, {
-        method: 'POST',
-        credentials: "include",
-        body: JSON.stringify(data1),
-        cache: 'no-cache',
-        headers: new Headers({
-            'content-type': 'application/json'
-        })
-    }).then(function (response) {
-        if (response.status != 200) {
-            console.log('Error', response.status);
-            return;
-        }
+    if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == ""|| data1['answer'] == "")
+        alert('One or more fields are empty. Please fill form carefully.')
+    else if(data1['question'] == "" && data1['a'] == "" && data1['b'] == "" && data1['c'] == "" && data1['d'] == "" || data1['answer'] == "")
+    {
+        info.innerHTML = `
+        <div class="container" id="end">
+            <p id="exitMessage"><h2>Questions successfully entered!</h2></p>
+            <button class="btn btn-outline-dark" id="endButton" onclick="window.location.assign('/teacher/login')">Go to menu</button>
+        </div>
+        `
+    }
+    else
+    {
+        console.log(data1);
+        fetch(`${window.origin}/teacher/question_settings/question`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify(data1),
+            cache: 'no-cache',
+            headers: new Headers({
+                'content-type': 'application/json'
+            })
+        }).then(function (response) {
+            if (response.status != 200) {
+                console.log('Error', response.status);
+                return;
+            }
 
-        response.json().then(function (data) {
-            console.log(data);
+            response.json().then(function (data) {
+                console.log(data);
+            })
         })
-    })
-    info.innerHTML = `
-    <div class="container" id="end">
-        <p id="exitMessage"><h2>Thanks for taking part in this quiz. We will be notifying you the results soon!</h2></p>
-        <button class="btn btn-outline-dark" id="endButton" onclick="window.location.assign('/teacher/login')">Go to menu</button>
-    </div>
-    `
+        info.innerHTML = `
+        <div class="container" id="end">
+            <p id="exitMessage"><h2>Questions successfully entered!</h2></p>
+            <button class="btn btn-outline-dark" id="endButton" onclick="window.location.assign('/teacher/login')">Go to menu</button>
+        </div>
+        `
+    }
 }
