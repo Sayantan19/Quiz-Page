@@ -5,8 +5,9 @@ It was initially developed for the Prelims Round of the TechQuiz, the Quiz Event
 <b>Tools and Languages used:</b>
 <br>1. <b>Designing:</b> Basic HTML, CSS (with Bootstrap 5)
 <br>2. <b>Frontend:</b> JS
-<br>3. <b>API:</b> Flask
-<br>4. <b>Databases:</b> SQLAlchemy, MySQL (for testing purposes).
-<br>5. <b>Server:</b>: Default Flask Server.
+<br>3. <b>API:</b> FetchAPI, JQuery
+<br>4. <b>Microframework:</b> Flask
+<br>4. <b>Databases:</b> MongoDB.
+<br>5. <b>Server:</b>: Flask Default Server.
 
 I hope to expand this project into a comprehensive software solution for holding exams in CBT platform in schools and colleges. Ever since COVID came into effect, there has been a rise in the requirement of CBT oriented exam patterns, and I hope that I provide a solution to the same.
