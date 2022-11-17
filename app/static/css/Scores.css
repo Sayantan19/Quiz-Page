@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    margin: 15em;
+    margin: 10.5em auto;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     justify-content: center;
     padding: 10px;
     border: 2px solid black;
@@ -20,12 +20,4 @@
 
 /* #table-heading{
     position: fixed;
-} */
-/* #back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 100px;
 } */

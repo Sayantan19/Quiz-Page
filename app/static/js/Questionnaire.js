@@ -96,7 +96,7 @@ function openQues1() {
         'd': option4.value,
         'answer': answer.value
     }
-    if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == "" || data1['answer'] == "")
+    if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == "" || data1['correct'] == "")
         alert('One or more fields are empty. Please fill form carefully.')
     else
     {
@@ -135,11 +135,9 @@ function callEndPage() {
         'b': option2.value,
         'c': option3.value,
         'd': option4.value,
-        'answer': answer.value
+        'correct': answer.value
     }
-    if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == ""|| data1['answer'] == "")
-        alert('One or more fields are empty. Please fill form carefully.')
-    else if(data1['question'] == "" && data1['a'] == "" && data1['b'] == "" && data1['c'] == "" && data1['d'] == "" || data1['answer'] == "")
+    if(data1['question'] == "" && data1['a'] == "" && data1['b'] == "" && data1['c'] == "" && data1['d'] == "" && data1['correct'] == "")
     {
         info.innerHTML = `
         <div class="container" id="end">
@@ -148,6 +146,8 @@ function callEndPage() {
         </div>
         `
     }
+    else if(data1['question'] == "" || data1['a'] == "" || data1['b'] == "" || data1['c'] == "" || data1['d'] == ""|| data1['correct'] == "")
+        alert('One or more fields are empty. Please fill form carefully.')
     else
     {
         console.log(data1);

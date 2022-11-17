@@ -1,0 +1,48 @@
+{
+    "Question_settings": {
+        "questiontime": "10",
+        "quizquestions": "4"
+    },
+    "quizData": [
+        {
+            "a": "-256 to 255",
+            "b": "-128 to 127",
+            "c": "0 to 255",
+            "correct": "b",
+            "d": "0 to 127",
+            "question": "Identify the correct range of signed char."
+        },
+        {
+            "a": "Exactly 1",
+            "b": "At most 1",
+            "c": "At most 2",
+            "correct": "a",
+            "d": "Depends on the graph",
+            "question": "In a graph of n nodes and n edges, how many cycles will be present?"
+        },
+        {
+            "a": "threw",
+            "b": "throws",
+            "c": "throw",
+            "correct": "c",
+            "d": "catch",
+            "question": "Using which of the following keywords can an exception be generated?"
+        },
+        {
+            "a": "California",
+            "b": "Seattle",
+            "c": "New York",
+            "correct": "b",
+            "d": "Detroit",
+            "question": "The headquarters of Amazon company are located in-"
+        },
+        {
+            "a": "Compiler",
+            "b": "Loader",
+            "c": "Operating system",
+            "correct": "c",
+            "d": "Assembler",
+            "question": "A computer cannot 'boot' if it does not have the: "
+        }
+    ]
+}

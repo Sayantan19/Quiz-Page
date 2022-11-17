@@ -57,7 +57,7 @@ def question():
 
 @student.route('/quiz/question')
 def questionset():
-    return send_from_directory(folder,path='question.json',as_attachment=True)
+    return send_from_directory(folder,path='Data/question.json',as_attachment=True)
 
 @student.route('/end', methods=['GET','POST'])
 def end():
