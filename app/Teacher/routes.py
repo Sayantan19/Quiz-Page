@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, json, jsonify, make_response,flash
-import csv
+import csv,os
 import app.extensions
 
 teacher = Blueprint('teacher', __name__, url_prefix='/teacher')
@@ -88,3 +88,22 @@ def score_save():
         for i in x:
             dict_writer.writerow(i)
     return '''<h1>Success!</h1>'''
+
+@teacher.route('/question_settings/question_upload', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save('temp_ques.json')
+        with open('temp_ques.json','r+') as file:
+            x = json.load(file)
+            print(type(x))
+            print(x)
+
+        with open('Data/question.json','r+') as file:
+            file_data = json.load(file)
+            for i in x['quizData']:
+                file_data['quizData'].append(i)
+            file.seek(0)
+            json.dump(file_data,file,indent = 4)
+        os.remove('temp_ques.json')
+        return '''Success!'''
