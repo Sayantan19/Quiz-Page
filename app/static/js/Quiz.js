@@ -86,14 +86,36 @@ function timeUpdate() {
         calculateMarks();
         closeNav();
 
+        const data = {
+            'studentScore': correctscore.toString(),
+            'completionTime': (timerValue-totalSeconds).toString(),
+            'qScore' : correctIncorrect
+        }
+
+        console.log(data);
+        fetch(`${window.origin}/student/quiz_result`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify(data),
+            cache: 'no-cache',
+            headers: new Headers({
+                'content-type': 'application/json'
+            })
+        }).then(function (response) {
+            if (response.status != 200) {
+                console.log('Error', response.status);
+                return;
+            }
+
+            response.json().then(function (data) {
+                console.log(data);
+            })
+        })
+
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
-        <form action="/student/end" method="post">
-        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}">
-        <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}">
-        <input class="btn btn-outline-dark" type="submit">
-        </form>
+            <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
+            <button type="button" id="exit" class="btn btn-outline-dark" onclick="window.location.assign('/student/end')">Submit</button>
         </div>
         `
     }
@@ -121,6 +143,7 @@ const prevBtn = document.getElementById('prev')
 let visited = new Array(quizData.length).fill(0)
 let selector = new Array(NoOfQuestions).fill(0)
 let answerList = new Array(NoOfQuestions).fill('n')
+let correctIncorrect = new Array(NoOfQuestions).fill(0)
 let currentQuiz = 0
 let correctscore = 0
 var count = 0;
@@ -200,14 +223,37 @@ function onSubmit() {
         clearInterval(timerID);
         localStorage.removeItem('saved_timer');
         closeNav();
+
+        const data = {
+            'studentScore': correctscore.toString(),
+            'completionTime': (timerValue-totalSeconds).toString(),
+            'qScore' : correctIncorrect
+        }
+
+        console.log(data);
+        fetch(`${window.origin}/student/quiz_result`, {
+            method: 'POST',
+            credentials: "include",
+            body: JSON.stringify(data),
+            cache: 'no-cache',
+            headers: new Headers({
+                'content-type': 'application/json'
+            })
+        }).then(function (response) {
+            if (response.status != 200) {
+                console.log('Error', response.status);
+                return;
+            }
+
+            response.json().then(function (data) {
+                console.log(data);
+            })
+        })
+
         quiz.innerHTML = `
         <div class="container" id="end">
-        <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
-        <form action="/student/end" method="post">
-        <input id="hideme" name="studentScore" type="text" value="${correctscore.toString()}" >
-        <input id="hideme" name="studentTime" type="text" value="${(timerValue - totalSeconds).toString()}" >
-        <input class="btn btn-outline-dark" type="submit">
-        </form>
+            <p id="exitMessage"><h2>You scored <span name="Score">${correctscore}</span>/${4 * NoOfQuestions}</h2></p>
+            <button type="button" id="exit" class="btn btn-outline-dark" onclick="window.location.assign('/student/end')">Submit</button>
         </div>
         `
     }
@@ -244,11 +290,20 @@ function onReset() {
 function calculateMarks() {
     for (let i = 0; i < answerList.length; i++) {
         if (answerList[i] === quizData[selector[i]].correct)
+        {
+            correctIncorrect[i] = 4;
             correctscore += 4;
+        }
         else if (answerList[i] === 'n')
+        {
+            correctIncorrect[i] = 0;
             correctscore += 0;
+        }
         else
+        {
+            correctIncorrect[i] = -1;
             correctscore--;
+        }
     }
 }
 

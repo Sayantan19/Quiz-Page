@@ -19,7 +19,6 @@ def teacher_login():
     msg = "Enter your credentials!"
     if (request.method == 'POST'):
         teacherName = request.form["teacherName"]
-        # user = teacherName
         print(request.form["teacherName"])
         pwd = request.form["pwd"]
         if (teacher_collection.find_one({'teacher_name': {"$eq": teacherName}, 'password': {"$eq": pwd}})):
@@ -37,7 +36,6 @@ def question_set():
 @teacher.route('/question_settings/questions', methods=['POST'])
 def question():
     req = request.get_json()
-    print(req)
     res = make_response(jsonify({"message": "JSON received"}))
     with open('Data/question.json', 'r+') as f:
         # json.write(req, f)
@@ -55,7 +53,6 @@ def question():
 @teacher.route('/question_settings/question', methods=['POST'])
 def question1():
     req = request.get_json()
-    print(req)
     res = make_response(jsonify({"message": "JSON received"}))
     with open('Data/question.json', 'r+') as f:
         # json.write(req, f)
@@ -80,8 +77,7 @@ def scores():
 def score_save():
     score_cursor = score_collection.find()
     x = list(score_cursor)
-    keys = ['_id','studentName','rollNo','studentScore','completionTime']
-    print(x)
+    keys = ['_id','studentName','rollNo','studentScore','completionTime','qScore']
     with open('Data/scores.csv', 'w', newline='') as score_file:
         dict_writer = csv.DictWriter(score_file, fieldnames=keys)
         dict_writer.writeheader()
