@@ -35,12 +35,55 @@ function openQues() {
 
 function callQuestionPage() {
     info_set.innerHTML = `
-    <form action = "/teacher/question_settings/question_upload" method = "post" enctype="multipart/form-data">  
-        <input type="file" name="file" id="tag"/>  
-        <input type = "submit" value="Upload" id="submit-but">  
-    </form>
-    `;
+    <div class="forms">
+    <label for="question" class="form-label">
+    <h3><b>Question: <span id="req">*Required</span></b></h3>
+    </label>
+    <input type="text" class="form-control" id="question" name="question" placeholder="" required="true">
+    </div>
+    <div class="forms">
+    <label for="option1" class="form-label">
+                <h3><b>Option 1: <span id="req">*Required</span></b></h3>
+            </label>
+            <input type="text" class="form-control" id="option1" name="option1" placeholder="" required="true">
+        </div>
+        <div class="forms">
+                <label for="option2" class="form-label">
+                <h3><b>Option 2: <span id="req">*Required</span></b></h3>
+                </label>
+                <input type="text" class="form-control" id="option2" name="option2" placeholder="" required="true">
+                </div>
+                <div class="forms">
+                <label for="option3" class="form-label">
+                <h3><b>Option 3: <span id="req">*Required</span></b></h3>
+                </label>
+                <input type="text" class="form-control" id="option3" name="option3" placeholder=""required="true">
+                </div>
+                <div class="forms">
+                <label for="option4" class="form-label">
+                <h3><b>Option 4: <span id="req">*Required</span></b></h3>
+                </label>
+                <input type="text" class="form-control" id="option4" name="option4" placeholder=""required="true">
+                </div>
+                <div class="forms">
+                <label for="answer" class="form-label">
+                <h3><b>Answer: <span id="req">*Required</span></b></h3>
+                </label>
+                <input type="text" class="form-control" id="answer" name="answer" placeholder=""required="true">
+                </div>
+                <hr>
+                <button class="btn btn-outline-dark forms" id="next">Add Question</button>
+                <button class="btn btn-outline-dark forms" id="end">Exit</button>
+                `
+    var question = document.getElementById('question');
+    var option1 = document.getElementById('option1');
+    var option2 = document.getElementById('option2');
+    var option3 = document.getElementById('option3');
+    var option4 = document.getElementById('option4');
+    var answer = document.getElementById('answer');
+    const button1 = document.getElementById('next')
     const button2 = document.getElementById('end')
+    button1.addEventListener('click', openQues1)
     button2.addEventListener('click', callEndPage)
 }
 
