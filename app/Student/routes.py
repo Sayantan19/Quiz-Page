@@ -4,7 +4,7 @@ import requests
 import flask
 import app.extensions
 
-folder = 'E:\Quiz Page'
+folder = 'E:\Quiz-Page'
 
 student = Blueprint('student', __name__,url_prefix='/student')
 student_collection = app.extensions.student_collection
@@ -28,6 +28,7 @@ def login():
         rollNo = request.form["rollNo"]
         pwd = request.form["pwd"]
         if(student_collection.find_one({'Student Name': {"$eq": studentName}, 'Student Roll':{"$eq": rollNo}, 'Password':{"$eq": pwd}})) :
+            print('hello')
             userList[ip_addr] = rollNo
             entry = {}
             entry['studentName'] = studentName

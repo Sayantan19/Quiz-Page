@@ -23,10 +23,11 @@ def teacher_login():
         print(request.form["teacherName"])
         pwd = request.form["pwd"]
         if (teacher_collection.find_one({'teacher_name': {"$eq": teacherName}, 'password': {"$eq": pwd}})):
+            print('here')
             return render_template('Menu.html', teacherName=teacherName)
         else:
             msg = 'Incorrect credentials'
-    return redirect('/teacher/login', msg=msg)
+    return redirect('/teacher/login')
 
 
 @teacher.route('/question_settings')
